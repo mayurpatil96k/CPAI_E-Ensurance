@@ -2,6 +2,7 @@
 import { RouterView } from 'vue-router'
 </script>
 <template>
+  
   <div class="mw-75 u-height  d-flex align-items-center justify-content-center">
     <div class="mw-75 card">
       <div class="card-body">
