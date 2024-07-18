@@ -1,45 +1,40 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Signup from '../views/Signup.vue'
+import AgentSignup from '@/components/Signup/AgentSignup.vue'
+import CustomerSignup from '@/components/Signup/CustomerSignup.vue'
+import AdminSignup from '@/components/Signup/AdminSignup.vue'
+import EmployeeSignup from '@/components/Signup/EmployeeSignup.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
+      path: '/signup',
+      name: 'signup',
       component: Signup,
       children: [
         {
-          path: '/agentsignup',
+          path: '/signup/agentsignup',
           name: 'AgentSignup',
-          component: () => import('../components/Signup/AgentSignup.vue')
+          component: AgentSignup
         },
         {
-          path: '/customersignup',
+          path: '/signup/customersignup',
           name: 'CustomerSignup',
-          component: () => import('../components/Signup/CustomerSignup.vue')
+          component: CustomerSignup
         },
         {
-          path:'/AdminSignup',
-          name:'AdminSignup',
-          component:()=>import('../components/Signup/AdminSignup.vue')
+          path: '/signup/AdminSignup',
+          name: 'AdminSignup',
+          component: AdminSignup
         },
         {
-          path:'/EmployeeSignup',
-          name:'EmployeeSignup',
-          component:()=>import('../components/Signup/EmployeeSignup.vue')
+          path: '/signup/EmployeeSignup',
+          name: 'EmployeeSignup',
+          component: EmployeeSignup
         }
-
       ]
     },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: Signup // Use the imported CreateView component
-    }
   ]
 })
 
