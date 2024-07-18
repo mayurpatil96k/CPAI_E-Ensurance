@@ -4,7 +4,7 @@ import AgentSignup from '@/components/Signup/AgentSignup.vue'
 import CustomerSignup from '@/components/Signup/CustomerSignup.vue'
 import AdminSignup from '@/components/Signup/AdminSignup.vue'
 import EmployeeSignup from '@/components/Signup/EmployeeSignup.vue'
-
+//Hello just checking 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
