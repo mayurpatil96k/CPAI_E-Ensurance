@@ -1,7 +1,6 @@
 
 <script>
 import { ref } from 'vue'
-//Here we are adding this to the main code for just checking,
 import { useVueform, Vueform } from '@vueform/vueform'
 export default {
   mixins: [Vueform],
