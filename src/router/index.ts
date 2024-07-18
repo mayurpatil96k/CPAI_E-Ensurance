@@ -19,6 +19,17 @@ const router = createRouter({
           name: 'CustomerSignup',
           component: () => import('../components/Signup/CustomerSignup.vue')
         },
+        {
+          path:'/AdminSignup',
+          name:'AdminSignup',
+          component:()=>import('../components/Signup/AdminSignup.vue')
+        },
+        {
+          path:'/EmployeeSignup',
+          name:'EmployeeSignup',
+          component:()=>import('../components/Signup/EmployeeSignup.vue')
+        }
+
       ]
     },
     {
