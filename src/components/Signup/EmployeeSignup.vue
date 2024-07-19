@@ -14,12 +14,12 @@ export default {
       displayErrors: false,
       addClass: 'vf-create-account',
       schema: {
-        page_title: {
-          type: 'static',
-          tag: 'h1',
-          align: 'center',
-          content: 'Create Employee Account',
-        },
+        // page_title: {
+        //   type: 'static',
+        //   tag: 'h1',
+        //   align: 'center',
+        //   content: 'Create Employee Account',
+        // },
         UserName: {
           type: 'text',
           label: 'Username',

@@ -4,7 +4,7 @@
       :display-errors="false"
       add-class="vf-create-account"
     >
-      <StaticElement
+      <!-- <StaticElement
         name="register_title"
         tag="h2"
         content="Create Account  for Customer"
@@ -12,7 +12,7 @@
         bottom="1"
         top="1"
         align="center"
-      />
+      /> -->
       <TextElement
         name="fullname"
         label="Full Name"

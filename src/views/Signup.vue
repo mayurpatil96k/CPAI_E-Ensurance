@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, watch } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
+const route = useRoute()
 
 const activeButton = ref('')
 
@@ -10,29 +11,38 @@ const navigateTo = (routeName: string) => {
   activeButton.value = routeName
   router.push({ name: routeName })
 }
+
+watch(() => route.name, (newRoute) => {
+  if (typeof newRoute === 'string') {
+    activeButton.value = newRoute
+  }
+}, { immediate: true }) 
 </script>
 
 <template>
   <div class="container u-height d-flex align-items-center justify-content-center">
-    <div class="card w-100 w-md-75 rounded-3 shadow-red">
+    <div class="card">
       <div class="card-body border border-danger border-5 rounded-3">
+        <div class="d-flex justify-content-center mb-3 text-center">
+          <h3><strong>Create Account For</strong></h3>
+        </div>
         <div class="d-flex flex-column flex-md-row justify-content-around mb-3">
-          <button 
+          <span 
             @click="navigateTo('AdminSignup')" 
-            :class="['btn btn-sm', activeButton === 'AdminSignup' ? 'btn-danger' : 'btn-outline-danger']"
-          >Admin</button>
-          <button 
+            :class="['text-link', activeButton === 'AdminSignup' ? 'active' : '']"
+          >Admin</span>
+          <span 
             @click="navigateTo('AgentSignup')" 
-            :class="['btn btn-sm', activeButton === 'AgentSignup' ? 'btn-danger' : 'btn-outline-danger']"
-          >Agent</button>
-          <button 
+            :class="['text-link', activeButton === 'AgentSignup' ? 'active' : '']"
+          >Agent</span>
+          <span 
             @click="navigateTo('CustomerSignup')" 
-            :class="['btn btn-sm', activeButton === 'CustomerSignup' ? 'btn-danger' : 'btn-outline-danger']"
-          >Customer</button>
-          <button 
+            :class="['text-link', activeButton === 'CustomerSignup' ? 'active' : '']"
+          >Customer</span>
+          <span 
             @click="navigateTo('EmployeeSignup')" 
-            :class="['btn btn-sm', activeButton === 'EmployeeSignup' ? 'btn-danger' : 'btn-outline-danger']"
-          >Employee</button>
+            :class="['text-link', activeButton === 'EmployeeSignup' ? 'active' : '']"
+          >Employee</span>
         </div>
         <RouterView />
       </div>
@@ -40,7 +50,25 @@ const navigateTo = (routeName: string) => {
   </div>
 </template>
 
+
 <style scoped>
+.text-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: black; 
+  padding: 5px 0;
+}
+
+.text-link:hover {
+  color: red; 
+}
+
+.text-link.active {
+  color: red; 
+}
+.text-link:hover {
+  color: darkred; 
+}
 .u-height {
   min-height: 100vh;
 }
@@ -49,9 +77,37 @@ const navigateTo = (routeName: string) => {
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
 }
 
+.card {
+  width: 500px; 
+  margin: 0 auto; 
+}
+
+.text-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: black; 
+  border-bottom: 2px solid transparent; 
+  padding: 5px 0;
+}
+
+.text-link:hover {
+  border-bottom-color: red; 
+}
+
+.text-link.active {
+  border-bottom-color: red; 
+}
+
 @media (max-width: 767px) {
-  .btn {
+  .card {
+    width: 100%; 
+    max-width: 500px; 
+  }
+
+  .text-link {
+    display: block;
     width: 100%;
+    text-align: center;
     margin-bottom: 10px;
   }
 }
