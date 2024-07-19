@@ -4,16 +4,75 @@ import { RouterView } from 'vue-router'
 </script>
 <template>
   
-  <div class="mw-75 u-height  d-flex align-items-center justify-content-center">
-    <div class="mw-75 card">
-      <div class="card-body">
+  <div class="container u-height d-flex align-items-center justify-content-center">
+    <div class="card">
+      <div class="card-body border border-danger border-5 rounded-3">
+        <div class="d-flex justify-content-center mb-3 text-center">
+          <h3><strong>Login</strong></h3>
+        </div>
         <RouterView />
       </div>
     </div>
   </div>
 </template>
 <style scoped>
-.u-height{
+.text-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: black; 
+  padding: 5px 0;
+}
+
+.text-link:hover {
+  color: red; 
+}
+
+.text-link.active {
+  color: red; 
+}
+.text-link:hover {
+  color: darkred; 
+}
+.u-height {
   min-height: 100vh;
+}
+
+.shadow-red {
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.card {
+  width: 500px; 
+  margin: 0 auto; 
+}
+
+.text-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: black; 
+  border-bottom: 2px solid transparent; 
+  padding: 5px 0;
+}
+
+.text-link:hover {
+  border-bottom-color: red; 
+}
+
+.text-link.active {
+  border-bottom-color: red; 
+}
+
+@media (max-width: 767px) {
+  .card {
+    width: 100%; 
+    max-width: 500px; 
+  }
+
+  .text-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
 }
 </style>

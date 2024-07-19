@@ -13,22 +13,21 @@ export default {
       displayErrors: false,
       addClass: 'vf-create-account',
       schema: {
-        page_title: {
-          type: 'static',
-          content: 'Login Admin Account',
-          tag: 'h1',
-        },
-        divider: {
-          type: 'static',
-          tag: 'hr',
-        },
+        // page_title: {
+        //   type: 'static',
+        //   content: 'Login Admin Account',
+        //   tag: 'h1',
+        // },
+        // divider: {
+        //   type: 'static',
+        //   tag: 'hr',
+        // },
         username: {
           type: 'text',
           label: 'UserName',
-          placeholder: 'Enter Correct Username',
+          placeholder: 'Enter Username',
           rules: [
             'required',
-            'unique',
             'min:8',
             'max:19',
           ],
@@ -37,7 +36,7 @@ export default {
           type: 'text',
           inputType: 'password',
           label: 'Password',
-          placeholder: 'Enter correct password',
+          placeholder: 'Enter password',
           rules: [
             'required',
             'min:8',
@@ -47,9 +46,10 @@ export default {
         register: {
           type: 'button',
           submits: true,
+          buttonLabel: 'Login',
           full: true,
           size: 'lg',
-          buttonLabel: 'Login Admin',
+          danger: true,
         },
       },
     })
