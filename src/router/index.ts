@@ -2,9 +2,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Signup from '../views/Signup.vue'
 import AgentSignup from '@/components/Signup/AgentSignup.vue'
 import CustomerSignup from '@/components/Signup/CustomerSignup.vue'
-import AdminSignup from '@/components/Signup/AdminSignup.vue'
-import EmployeeSignup from '@/components/Signup/EmployeeSignup.vue'
-//Hello just checking 
+import AdminSignup from '../components/Signup/AdminSignup.vue'
+import EmployeeSignup from '../components/Signup/EmployeeSignup.vue'
+import Login from '../views/Login.vue'
+import AdminLogin from '@/components/Login/AdminLogin.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -35,6 +37,19 @@ const router = createRouter({
         }
       ]
     },
+    {
+      path:'/Login',
+      name:'Login',
+      component:Login,
+      children:[
+        {
+          path: '/Login/adminLogin',
+          name: 'adminLogin',
+          component: AdminLogin,
+        },
+        
+      ]
+    }
   ]
 })
 
