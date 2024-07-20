@@ -1,5 +1,4 @@
 <template>
-  
     <div class="card border-danger border-2 hover-shadow" style="width: 18rem">
       <img
         src="https://life.futuregenerali.in/media/lzxjzwb3/life-insurance-for-you-and-your-family.webp"

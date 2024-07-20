@@ -22,7 +22,7 @@
             <td>
                 <button class="btn btn-outline-dark">
                   <i class="mdi mdi-arrow-right-bold-box-outline"></i></button>
-                <button class="btn btn-outline-danger ">
+                <button class=" ml-md-2 btn btn-outline-danger ">
                   <i class="mdi mdi-account-off-outline"></i>
                 </button>
 
