@@ -20,11 +20,7 @@
             <td>{{ customer.email }}</td>
             <td>{{ customer.phone }}</td>
             <td>
-<<<<<<< HEAD
-                <button class="btn btn-secondary">
-=======
                 <button class="btn btn-outline-dark">
->>>>>>> 373d529b7b53cc9df53e2f7ea11b1c2c743bebbd
                   <i class="mdi mdi-arrow-right-bold-box-outline"></i></button>
                 <button class="btn btn-outline-danger ">
                   <i class="mdi mdi-account-off-outline"></i>
@@ -71,6 +67,7 @@
 
 .table {
   border: 1px solid #dee2e6;
+  text-align: center;
 }
 
 .table thead th {
@@ -80,7 +77,9 @@
 
 .table tbody tr:hover {
   background-color: #f8f9fa;
+  
 }
+
 
 .btn {
   border-radius: 50%;
