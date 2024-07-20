@@ -6,6 +6,7 @@ import AdminSignup from '../components/Signup/AdminSignup.vue'
 import EmployeeSignup from '../components/Signup/EmployeeSignup.vue'
 import Login from '../views/Login.vue'
 import AdminLogin from '@/components/Login/AdminLogin.vue'
+import CustomerPolicies from '@/components/Policies/CustomerPolicies.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -49,6 +50,11 @@ const router = createRouter({
         },
         
       ]
+    },
+    {
+      path:'/CustomerPolicies',
+      name:'CustomerPolicies',
+      component:CustomerPolicies,
     }
   ]
 })
