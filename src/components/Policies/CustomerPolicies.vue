@@ -20,7 +20,7 @@
             <td>{{ customer.email }}</td>
             <td>{{ customer.phone }}</td>
             <td>
-                <button class="btn btn-primary">
+                <button class="btn btn-secondary">
                   <i class="mdi mdi-arrow-right-bold-box-outline"></i></button>
                 <button class="btn btn-danger ">
                   <i class="mdi mdi-account-off-outline"></i>
@@ -87,6 +87,7 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width:100vw;
 }
 
   </style>
