@@ -20,9 +20,13 @@
             <td>{{ customer.email }}</td>
             <td>{{ customer.phone }}</td>
             <td>
+<<<<<<< HEAD
                 <button class="btn btn-secondary">
+=======
+                <button class="btn btn-outline-dark">
+>>>>>>> 373d529b7b53cc9df53e2f7ea11b1c2c743bebbd
                   <i class="mdi mdi-arrow-right-bold-box-outline"></i></button>
-                <button class="btn btn-danger ">
+                <button class="btn btn-outline-danger ">
                   <i class="mdi mdi-account-off-outline"></i>
                 </button>
 
