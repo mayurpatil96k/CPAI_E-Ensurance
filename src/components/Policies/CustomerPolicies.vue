@@ -67,6 +67,7 @@
 
 .table {
   border: 1px solid #dee2e6;
+  text-align: center;
 }
 
 .table thead th {
@@ -76,7 +77,9 @@
 
 .table tbody tr:hover {
   background-color: #f8f9fa;
+  
 }
+
 
 .btn {
   border-radius: 50%;
