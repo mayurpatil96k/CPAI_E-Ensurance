@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import PolicyCard from './PolicyCard.vue';
 import Header from '../Header.vue'
+import Footer from '../Footer.vue'
 </script>
 
 <template>
@@ -14,6 +15,8 @@ import Header from '../Header.vue'
       </div>
     </div>
   </div>
+  <Footer/>
+
 </template>
 
 <style scoped>
