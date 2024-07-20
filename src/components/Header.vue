@@ -41,4 +41,12 @@
 .navbar {
   width: 98.8vw;
 }
+  .u-color{
+    color: white !important;
+  }
+  .navbar{
+    width:98.8vw;
+    padding :1rem 12rem;
+   
+  }
 </style>
