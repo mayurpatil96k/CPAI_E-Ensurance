@@ -7,6 +7,7 @@ import EmployeeSignup from '../components/Signup/EmployeeSignup.vue'
 import Login from '../views/Login.vue'
 import AdminLogin from '@/components/Login/AdminLogin.vue'
 
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
