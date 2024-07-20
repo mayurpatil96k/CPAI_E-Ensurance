@@ -20,8 +20,9 @@
             <td>{{ customer.email }}</td>
             <td>{{ customer.phone }}</td>
             <td>
-                <button class="btn btn-danger">View Details</button>
-                <button class="btn btn-outline-danger btn-sm mx-1">Delete</button>
+                <button class="btn btn-primary">View Details</button>
+                <button class="btn btn-danger btn-sm mx-1">Delete</button>
+
             </td>
           </tr>
         </tbody>
@@ -57,7 +58,7 @@
 
 .header {
   color: #fff;
-  background-color: #dc3545; /* Red background */
+  background-color: #6c757d;
   padding: 10px;
   border-radius: 5px;
 }
@@ -67,32 +68,24 @@
 }
 
 .table thead th {
-  background-color: #c82333; /* Darker red background */
+  background-color: #343a40;
   color: #fff;
 }
 
 .table tbody tr:hover {
-  background-color: #f8d7da; /* Light red background on hover */
+  background-color: #f8f9fa;
 }
 
 .btn {
   border-radius: 20px;
 }
 
-.btn-danger {
-  background-color: #dc3545; /* Red background */
-  border-color: #dc3545; /* Red border */
-}
-
-.btn-outline-danger {
-  color: #dc3545; /* Red text */
-  border-color: #dc3545; /* Red border */
-}
-
 .container {
-  background-color: #f8d7da; /* Light red background */
+  background-color: #f7f7f7;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-</style>
+
+  </style>
+  
