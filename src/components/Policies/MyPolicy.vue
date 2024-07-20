@@ -3,7 +3,7 @@ import PolicyCard from './PolicyCard.vue';
 import Header from '../Header.vue'
 import Footer from '../Footer.vue'
 </script>
-
+<!-- adding one comment to the page -->
 <template>
     <Header/>
   <div class="container">
