@@ -6,8 +6,13 @@ import AdminSignup from '../components/Signup/AdminSignup.vue'
 import EmployeeSignup from '../components/Signup/EmployeeSignup.vue'
 import Login from '../views/Login.vue'
 import AdminLogin from '@/components/Login/AdminLogin.vue'
+<<<<<<< HEAD
 
 
+=======
+import CustomerPolicies from '../components/Policies/CustomerPolicies.vue'
+import MyPolicy from '../components/Policies/MyPolicy.vue'
+>>>>>>> 7c0ae42054d1099c728374222a40b0bc61eb4dc8
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
