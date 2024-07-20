@@ -30,4 +30,8 @@
   .u-color{
     color: white !important;
   }
+  .navbar{
+    width:100vw;
+    padding :1rem 12rem;
+  }
 </style>
