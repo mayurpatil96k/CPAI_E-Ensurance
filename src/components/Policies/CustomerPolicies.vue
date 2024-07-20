@@ -41,7 +41,6 @@
           { id: 2, name: 'Elon Musk', email: 'elon@example.com', phone: '987-654-3210', image: 'public/ElonMusk.jpeg' },
           { id: 2, name: 'Elon Musk', email: 'elon@example.com', phone: '987-654-3210', image: 'public/ElonMusk.jpeg' },
           { id: 2, name: 'Elon Musk', email: 'elon@example.com', phone: '987-654-3210', image: 'public/ElonMusk.jpeg' },
-          // Add more customer records here
         ]
       };
     }
