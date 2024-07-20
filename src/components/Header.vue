@@ -31,7 +31,8 @@
     color: white !important;
   }
   .navbar{
-    width:100vw;
+    width:99vw;
     padding :1rem 12rem;
+   
   }
 </style>

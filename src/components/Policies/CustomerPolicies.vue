@@ -20,8 +20,11 @@
             <td>{{ customer.email }}</td>
             <td>{{ customer.phone }}</td>
             <td>
-                <button class="btn btn-primary">View Details</button>
-                <button class="btn btn-danger btn-sm mx-1">Delete</button>
+                <button class="btn btn-primary">
+                  <i class="mdi mdi-arrow-right-bold-box-outline"></i></button>
+                <button class="btn btn-danger ">
+                  <i class="mdi mdi-account-off-outline"></i>
+                </button>
 
             </td>
           </tr>
@@ -76,7 +79,7 @@
 }
 
 .btn {
-  border-radius: 20px;
+  border-radius: 50%;
 }
 
 .container {
