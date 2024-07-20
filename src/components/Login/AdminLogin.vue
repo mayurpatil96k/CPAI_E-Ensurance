@@ -29,7 +29,7 @@ export default {
           rules: [
             'required',
             'min:8',
-            'max:19',
+            'max:50',
           ],
         },
         password: {

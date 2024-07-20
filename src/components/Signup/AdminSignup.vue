@@ -13,13 +13,7 @@ export default {
       addClass: 'vf-create-account',
      
       schema: {
-        // page_title: {
-        //   type: 'static',
-        //   content: 'Create Admin account',
-        //   tag: 'h1',
-        //   align: 'center',
-
-        // },
+       
        
         username: {
           type: 'text',
