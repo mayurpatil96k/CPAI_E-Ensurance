@@ -25,10 +25,8 @@
             <a class="nav-link active u-color" aria-current="page" href="#">Home</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-light" type="submit">Search</button>
-        </form>
+          <button class="btn btn-outline-light" type="submit">Login</button>
+      
       </div>
     </div>
   </nav>
@@ -46,7 +44,7 @@
   }
   .navbar{
     width:98.8vw;
-    padding :1rem 12rem;
+    /* padding :1rem 12rem ; */
    
   }
 </style>
