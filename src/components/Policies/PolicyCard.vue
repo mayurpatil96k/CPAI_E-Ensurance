@@ -1,11 +1,11 @@
 <template>
-    <div class="card border-danger border-2 hover-shadow" style="width: 18rem">
-      <img
+    <div class="card border-primary border-2 hover-shadow" style="width: 18rem">
+      <!-- <img
         src="https://life.futuregenerali.in/media/lzxjzwb3/life-insurance-for-you-and-your-family.webp"
         class="card-img-top"
         alt="LIC Plan Image"
         
-      />
+      /> -->
       <div class="card-body">
         <h5 class="card-title">LIC Jeevan Anand</h5>
         <p class="card-text text-justify text-truncate-5">
@@ -14,8 +14,8 @@
           provision of lump sum payment at the end of the selected policy term in case of survival.
         </p>
         <div class="d-flex justify-content-md-between">
-          <a href="#" class="btn btn-outline-danger">Buy Now</a>
-          <a href="#" class="btn btn-outline-danger">Know More</a>
+          <a href="#" class="btn btn-outline-primary">Buy Now</a>
+          <a href="#" class="btn btn-outline-primary">Know More</a>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
       text-overflow: ellipsis;
     }
     .hover-shadow:hover {
-      box-shadow: 0 4px 8px 0 rgba(220, 53, 69, 0.5), 0 6px 20px 0 rgba(220, 53, 69, 0.5);
+      box-shadow: 0 4px 8px 0 rgba(9, 149, 209, 0.5), 0 6px 20px 0 rgba(7, 191, 237, 0.5);
     }
   </style>
   
