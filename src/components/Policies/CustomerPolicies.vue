@@ -62,7 +62,12 @@ export default {
         customer.phone.includes(lowercasedQuery)
       );
     }
-  }
+  },
+  methods: {
+    reloadPage() {
+      window.location.reload();
+    }
+  }  
 }
 </script>
 <template>
@@ -81,7 +86,7 @@ export default {
               <div class="col-sm-9 col-xs-12 text-right">
                 <div class="btn_group">
                   <input type="text" class="form-control" placeholder="Search" v-model="searchQuery"/>
-                  <button class="btn btn-default" title="Reload">
+                  <button class="btn btn-default" title="Reload" @click="reloadPage">
                     <i class="mdi mdi-sync-circle" style='font-size:18px'></i>
                   </button>
                 </div>
@@ -176,7 +181,7 @@ export default {
 }
 .panel {
   margin-top: 10px;
-  background: linear-gradient(to right, #3092d4, #3a85d1);
+  background: linear-gradient(to right, #13344b, #3a85d1);
   padding: 0;
   border-radius: 10px;
   border: none;
@@ -312,38 +317,45 @@ export default {
   line-height: 35px;
 }
 .pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
+
+.pagination li {
+  margin: 0 5px;
+}
+
 .pagination li a {
+  display: inline-block;
+  padding: 10px 15px;
   color: #fff;
-  background-color: transparent;
-  border: 2px solid transparent;
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
-  line-height: 31px;
-  width: 35px;
-  height: 35px;
-  padding: 0;
-  margin: 0 3px;
-  border-radius: 50px;
-  transition: all 0.3s ease 0s;
+  background-color: #007bff;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .pagination li a:hover {
+  background-color: #0056b3;
   color: #fff;
-  background-color: transparent;
-  border-color: rgba(255, 255, 255, 0.2);
 }
-.pagination li a:focus,
-.pagination li.active a,
-.pagination li.active a:hover {
-  color: #fff;
-  background-color: transparent;
-  border-color: #fff;
+
+.pagination li.active a {
+  background-color: #5ae37a;
+  border-color: #28a745;
 }
-.pagination li:first-child a,
-.pagination li:last-child a {
-  border-radius: 50%;
+
+.pagination li a:first-child {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.pagination li a:last-child {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 
 @media (max-width: 576px) {

@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar pr-md-5 navbar-expand-lg navbar-light bg-success" >
+  <nav class="navbar pr-md-5 navbar-expand-lg navbar-light bg-primary" >
     <div class="container-fluid">
       <a class="navbar-brand u-color" href="#">Navbar</a>
       <button
