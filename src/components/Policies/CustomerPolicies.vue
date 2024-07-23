@@ -66,16 +66,17 @@ export default {
 }
 </script>
 <template>
-  <div class="dashboard">
+  
   <Header />
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="" style="width: 100vw;">
+
+  <div class="container1">
+    <div class="justify-content-center cont1">
+      <div class="col-md-offset-1 col-lr-12 ">
         <div class="panel">
           <div class="panel-heading">
-            <div class="row d-flex align-content-center ">
-              <div class="col col-sm-4 col-xs-12">
-                <h4 class="title">Customer Details</h4>
+            <div class="row">
+              <div class="col col-sm-3 col-xs-12">
+                <h4 class="title">Customer <span>Details</span></h4>
               </div>
               <div class="col-sm-9 col-xs-12 text-right">
                 <div class="btn_group">
@@ -149,32 +150,39 @@ export default {
       </div>
     </div>
   </div>
-  <Footer />
-  </div>
+  
+  <Footer class="footer"/>
 </template>
 
 <style scoped>
-.container{
-  width:100vw;
-}
+
 .customer-icon {
   width: 50px;
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
 }
-
+.container1{
+  position:relative;
+  width:99vw;
+  margin-top:10px;
+}
+.cont1{
+  width:100%;
+  position:relative;
+}
 .demo {
   font-family: 'Noto Sans', sans-serif;
 }
 .panel {
   margin-top: 10px;
-  background: linear-gradient(to right, #0099ff, #307cc7);
+  background: linear-gradient(to right, #3092d4, #3a85d1);
   padding: 0;
   border-radius: 10px;
   border: none;
   margin-top:10px;
-  width:100vw;
+  width:100%;
+  position:relative;
 }
 .panel .panel-heading {
   padding: 20px 15px;
@@ -277,7 +285,6 @@ export default {
   display: none;
   transform: translateX(-50%);
   position: absolute;
-  left: 50%;
   top: -32px;
   transition: all 0.3s ease 0s;
 }
