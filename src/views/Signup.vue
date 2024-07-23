@@ -24,19 +24,6 @@ watch(() => route.name, (newRoute) => {
   <div class="container u-height d-flex align-items-center justify-content-center">
     <div class="card">
       <div class="card-body border border-danger border-5 rounded-3">
-        <div class="d-flex justify-content-center mb-3 text-center">
-          <h3><strong>Create Account For</strong></h3>
-        </div>
-        <div class="d-flex flex-column flex-md-row justify-content-around mb-3">
-          <span 
-            @click="navigateTo('AdminSignup')" 
-            :class="['text-link', activeButton === 'AdminSignup' ? 'active' : '']"
-          >Admin</span>
-          <span 
-            @click="navigateTo('CustomerSignup')" 
-            :class="['text-link', activeButton === 'CustomerSignup' ? 'active' : '']"
-          >Customer</span>
-        </div>
         <RouterView />
       </div>
     </div>
