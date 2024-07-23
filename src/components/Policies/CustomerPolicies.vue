@@ -54,14 +54,14 @@ export default {
 <template>
   <Header />
 
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-offset-1 col-md-10">
-        <div class="panel">
+  <div class="container w-100">
+    <div class="row justify-content-center w-100">
+      <div class="col-md-offset-1 col-md-10 w-100">
+        <div class="panel w-100">
           <div class="panel-heading">
-            <div class="row">
-              <div class="col col-sm-3 col-xs-12">
-                <h4 class="title">Customer <span>Details</span></h4>
+            <div class="row d-flex align-content-center ">
+              <div class="col col-sm-4 col-xs-12">
+                <h4 class="title">Customer Details</h4>
               </div>
               <div class="col-sm-9 col-xs-12 text-right">
                 <div class="btn_group">
