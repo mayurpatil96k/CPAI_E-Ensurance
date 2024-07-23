@@ -1,55 +1,143 @@
-<template>
-    <div class="container my-5">
-      <h1 class="text-center mb-4 header">All Customers Policies Record</h1>
-      <table class="table table-striped table-hover">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Customer ID</th>
-            <th scope="col">Image</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="customer in customers" :key="customer.id">
-            <td>{{ customer.id }}</td>
-            <td><img :src="customer.image" alt="Customer Image" class="img-thumbnail customer-icon"></td>
-            <td>{{ customer.name }}</td>
-            <td>{{ customer.email }}</td>
-            <td>{{ customer.phone }}</td>
-            <td>
-                <button class="btn btn-outline-dark">
-                  <i class="mdi mdi-arrow-right-bold-box-outline"></i></button>
-                <button class=" ml-md-2 btn btn-outline-danger ">
-                  <i class="mdi mdi-account-off-outline"></i>
-                </button>
-
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        customers: [
-          { id: 1, name: 'Anant Ambani', email: 'anant@example.com', phone: '123-456-7890', image: 'public/AnantAmbani.avif' },
-          { id: 2, name: 'Elon Musk', email: 'elon@example.com', phone: '987-654-3210', image: 'public/ElonMusk.jpeg' },
-          { id: 3, name: 'Elon Musk', email: 'elon@example.com', phone: '987-654-3210', image: 'public/ElonMusk.jpeg' },
-          { id: 2, name: 'Elon Musk', email: 'elon@example.com', phone: '987-654-3210', image: 'public/ElonMusk.jpeg' },
-          { id: 2, name: 'Elon Musk', email: 'elon@example.com', phone: '987-654-3210', image: 'public/ElonMusk.jpeg' },
-          { id: 2, name: 'Elon Musk', email: 'elon@example.com', phone: '987-654-3210', image: 'public/ElonMusk.jpeg' },
-        ]
-      };
+<script>
+import Header from '../Header.vue'
+import Footer from '../Footer.vue'
+export default {
+  components: {
+    Header,
+    Footer
+  },
+  data() {
+    return {
+      customers: [
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          image: 'public/AnantAmbani.avif'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          image: 'public/ElonMusk.jpeg'
+        }
+      ],
+      totalcustomers: 25
     }
-  };
-  </script>
-  
+  }
+}
+</script>
+<template>
+  <Header />
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-offset-1 col-md-10">
+        <div class="panel">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col col-sm-3 col-xs-12">
+                <h4 class="title">Customer <span>Details</span></h4>
+              </div>
+              <div class="col-sm-9 col-xs-12 text-right">
+                <div class="btn_group">
+                  <input type="text" class="form-control" placeholder="Search" />
+                  <button class="btn btn-default" title="Reload">
+                    <i class="mdi mdi-sync-circle" style='font-size:18px'></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Image</th>
+                  <th>Full Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(customer, index) in customers" :key="customer.id">
+                  <td>{{ index + 1 }}</td>
+                  <td>
+                    <img
+                      :src="customer.image"
+                      alt="Customer Image"
+                      class="img-thumbnail customer-icon"
+                    />
+                  </td>
+
+                  <td>{{ customer.name }}</td>
+                  <td>{{ customer.email }}</td>
+                  <td>{{ customer.phone }}</td>
+                  <td>
+                    <ul class="action-list">
+                      <li>
+                        <a href="#" data-tip="edit"><i class="fa fa-edit"></i></a>
+                      </li>
+                      <li>
+                        <a href="#" data-tip="delete"><i class="fa fa-trash"></i></a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col col-sm-6 col-xs-6">
+                showing <b>{{ customers.length }}</b> out of <b>{{ totalcustomers }}</b> entries
+              </div>
+              <div class="col-sm-6 col-xs-6">
+                <ul class="pagination hidden-xs pull-right">
+                  <li><a href="#">< </a></li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</template>
+
 <style scoped>
 .customer-icon {
   width: 50px;
@@ -57,41 +145,177 @@
   object-fit: cover;
   border-radius: 50%;
 }
-
-.header {
-  color: #fff;
-  background-color: #6c757d;
-  padding: 10px;
-  border-radius: 5px;
+.demo {
+  font-family: 'Noto Sans', sans-serif;
 }
-
-.table {
-  border: 1px solid #dee2e6;
+.panel {
+  background: linear-gradient(to right, #2980b9, #2c3e50);
+  padding: 0;
+  border-radius: 10px;
+  border: none;
+  box-shadow:
+    0 0 0 5px rgba(0, 0, 0, 0.05),
+    0 0 0 10px rgba(0, 0, 0, 0.05);
+}
+.panel .panel-heading {
+  padding: 20px 15px;
+  border-radius: 10px 10px 0 0;
+  margin: 0;
+}
+.panel .panel-heading .title {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 500;
+  text-transform: capitalize;
+  line-height: 40px;
+  margin: 0;
+}
+.panel .panel-heading .btn {
+  color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  font-size: 16px;
+  text-transform: capitalize;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  transition: all 0.3s ease 0s;
+}
+.panel .panel-heading .btn:hover {
+  color: #fff;
+  text-shadow: 3px 3px rgba(255, 255, 255, 0.2);
+}
+.panel .panel-heading .form-control {
+  color: #fff;
+  background-color: transparent;
+  width: 35%;
+  height: 40px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+.panel .panel-heading .form-control:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+  outline: none;
+}
+.panel .panel-heading .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 15px;
+  font-weight: 500;
+}
+.panel .panel-body {
+  padding: 0;
+}
+.panel .panel-body .table thead tr th {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 12px;
+  border: none;
+}
+.panel .panel-body .table tbody tr td {
+  color: #fff;
+  font-size: 15px;
+  padding: 10px 12px;
+  vertical-align: middle;
+  border: none;
+}
+.panel .panel-body .table tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.panel .panel-body .table tbody .action-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.panel .panel-body .table tbody .action-list li {
+  display: inline-block;
+  margin: 0 5px;
+}
+.panel .panel-body .table tbody .action-list li a {
+  color: #fff;
+  font-size: 15px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease 0s;
+}
+.panel .panel-body .table tbody .action-list li a:hover {
+  text-shadow: 3px 3px 0 rgba(255, 255, 255, 0.3);
+}
+.panel .panel-body .table tbody .action-list li a:before,
+.panel .panel-body .table tbody .action-list li a:after {
+  content: attr(data-tip);
+  color: #fff;
+  background-color: #111;
+  font-size: 12px;
+  padding: 5px 7px;
+  border-radius: 4px;
+  text-transform: capitalize;
+  display: none;
+  transform: translateX(-50%);
+  position: absolute;
+  left: 50%;
+  top: -32px;
+  transition: all 0.3s ease 0s;
+}
+.panel .panel-body .table tbody .action-list li a:after {
+  content: '';
+  height: 15px;
+  width: 15px;
+  padding: 0;
+  border-radius: 0;
+  transform: translateX(-50%) rotate(45deg);
+  top: -18px;
+  z-index: -1;
+}
+.panel .panel-body .table tbody .action-list li a:hover:before,
+.panel .panel-body .table tbody .action-list li a:hover:after {
+  display: block;
+}
+.panel .panel-footer {
+  color: #fff;
+  background-color: transparent;
+  padding: 15px;
+  border: none;
+}
+.panel .panel-footer .col {
+  line-height: 35px;
+}
+.pagination {
+  margin: 0;
+}
+.pagination li a {
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid transparent;
+  font-size: 18px;
+  font-weight: 500;
   text-align: center;
+  line-height: 31px;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  margin: 0 3px;
+  border-radius: 50px;
+  transition: all 0.3s ease 0s;
 }
-
-.table thead th {
-  background-color: #343a40;
+.pagination li a:hover {
   color: #fff;
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
 }
-
-.table tbody tr:hover {
-  background-color: #f8f9fa;
-  
+.pagination li a:focus,
+.pagination li.active a,
+.pagination li.active a:hover {
+  color: #fff;
+  background-color: transparent;
+  border-color: #fff;
 }
-
-
-.btn {
+.pagination li:first-child a,
+.pagination li:last-child a {
   border-radius: 50%;
 }
-
-.container {
-  background-color: #f7f7f7;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width:100vw;
-}
-
-  </style>
-  
+</style>
+ 

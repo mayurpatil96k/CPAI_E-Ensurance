@@ -9,7 +9,6 @@ export default {
       displayErrors: false,
       size: 'md',
       addClass: 'vf-create-account',
-
       schema: {
         username: {
           type: 'text',
