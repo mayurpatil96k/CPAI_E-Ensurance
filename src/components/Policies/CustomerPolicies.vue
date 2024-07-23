@@ -46,7 +46,21 @@ export default {
           image: 'public/ElonMusk.jpeg'
         }
       ],
-      totalcustomers: 25
+      totalcustomers: 25,
+      searchQuery: ''
+    }
+  },
+  computed: {
+    filteredCustomers() {
+      if (!this.searchQuery) {
+        return this.customers;
+      }
+      const lowercasedQuery = this.searchQuery.toLowerCase();
+      return this.customers.filter(customer =>
+        customer.name.toLowerCase().includes(lowercasedQuery) ||
+        customer.email.toLowerCase().includes(lowercasedQuery) ||
+        customer.phone.includes(lowercasedQuery)
+      );
     }
   }
 }
@@ -65,7 +79,7 @@ export default {
               </div>
               <div class="col-sm-9 col-xs-12 text-right">
                 <div class="btn_group">
-                  <input type="text" class="form-control" placeholder="Search" />
+                  <input type="text" class="form-control" placeholder="Search" v-model="searchQuery"/>
                   <button class="btn btn-default" title="Reload">
                     <i class="mdi mdi-sync-circle" style='font-size:18px'></i>
                   </button>
@@ -86,7 +100,7 @@ export default {
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(customer, index) in customers" :key="customer.id">
+                <tr v-for="(customer, index) in filteredCustomers" :key="index">
                   <td>{{ index + 1 }}</td>
                   <td>
                     <img
@@ -116,7 +130,7 @@ export default {
           <div class="panel-footer">
             <div class="row">
               <div class="col col-sm-6 col-xs-6">
-                showing <b>{{ customers.length }}</b> out of <b>{{ totalcustomers }}</b> entries
+                showing <b>{{ filteredCustomers.length }}</b> out of <b>{{ totalcustomers }}</b> entries
               </div>
               <div class="col-sm-6 col-xs-6">
                 <ul class="pagination hidden-xs pull-right">
