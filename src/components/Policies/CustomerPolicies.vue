@@ -1,6 +1,7 @@
 <script>
 import Header from '../Header.vue'
 import Footer from '../Footer.vue'
+
 export default {
   components: {
     Header,
@@ -21,30 +22,7 @@ export default {
           phone: '987-654-3210',
           image: 'public/ElonMusk.jpeg'
         },
-        {
-          name: 'Elon Musk',
-          email: 'elon@example.com',
-          phone: '987-654-3210',
-          image: 'public/ElonMusk.jpeg'
-        },
-        {
-          name: 'Elon Musk',
-          email: 'elon@example.com',
-          phone: '987-654-3210',
-          image: 'public/ElonMusk.jpeg'
-        },
-        {
-          name: 'Elon Musk',
-          email: 'elon@example.com',
-          phone: '987-654-3210',
-          image: 'public/ElonMusk.jpeg'
-        },
-        {
-          name: 'Elon Musk',
-          email: 'elon@example.com',
-          phone: '987-654-3210',
-          image: 'public/ElonMusk.jpeg'
-        }
+        // Add more customers here if needed
       ],
       totalcustomers: 25,
       searchQuery: ''
@@ -65,97 +43,94 @@ export default {
   }
 }
 </script>
+
 <template>
   <div class="dashboard">
-  <Header />
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="" style="width: 100vw;">
-        <div class="panel">
-          <div class="panel-heading">
-            <div class="row d-flex align-content-center ">
-              <div class="col col-sm-4 col-xs-12">
-                <h4 class="title">Customer Details</h4>
-              </div>
-              <div class="col-sm-9 col-xs-12 text-right">
-                <div class="btn_group">
-                  <input type="text" class="form-control" placeholder="Search" v-model="searchQuery"/>
-                  <button class="btn btn-default" title="Reload">
-                    <i class="mdi mdi-sync-circle" style='font-size:18px'></i>
-                  </button>
+    <Header />
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="panel">
+            <div class="panel-heading">
+              <div class="row d-flex align-content-center">
+                <div class="col-12 col-sm-4">
+                  <h4 class="title">Customer Details</h4>
+                </div>
+                <div class="col-12 col-sm-4 text-right">
+                  <div class="btn_group d-flex justify-content-end">
+                    <input type="text" class="form-control" placeholder="Search" v-model="searchQuery" />
+                    <button class="btn btn-default" title="Reload">
+                      <i class="mdi mdi-sync-circle" style='font-size:18px'></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="panel-body table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Image</th>
-                  <th>Full Name</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="(customer, index) in filteredCustomers" :key="index">
-                  <td>{{ index + 1 }}</td>
-                  <td>
-                    <img
-                      :src="customer.image"
-                      alt="Customer Image"
-                      class="img-thumbnail customer-icon"
-                    />
-                  </td>
-
-                  <td>{{ customer.name }}</td>
-                  <td>{{ customer.email }}</td>
-                  <td>{{ customer.phone }}</td>
-                  <td>
-                    <ul class="action-list">
-                      <li>
-                        <a href="#" data-tip="edit"><i class="fa fa-edit"></i></a>
-                      </li>
-                      <li>
-                        <a href="#" data-tip="delete"><i class="fa fa-trash"></i></a>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="panel-footer">
-            <div class="row">
-              <div class="col col-sm-6 col-xs-6">
-                showing <b>{{ filteredCustomers.length }}</b> out of <b>{{ totalcustomers }}</b> entries
-              </div>
-              <div class="col-sm-6 col-xs-6">
-                <ul class="pagination hidden-xs pull-right">
-                  <li><a href="#">< </a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">></a></li>
-                </ul>
+            <div class="panel-body table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Image</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(customer, index) in filteredCustomers" :key="index">
+                    <td>{{ index + 1 }}</td>
+                    <td>
+                      <img :src="customer.image" alt="Customer Image" class="img-thumbnail customer-icon" />
+                    </td>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>
+                      <ul class="action-list">
+                        <li>
+                          <a href="#" data-tip="Edit"><i class="fa fa-edit"></i></a>
+                        </li>
+                        <li>
+                          <a href="#" data-tip="Delete"><i class="fa fa-trash"></i></a>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="panel-footer">
+              <div class="row">
+                <div class="col-6">
+                  Showing <b>{{ filteredCustomers.length }}</b> out of <b>{{ totalcustomers }}</b> entries
+                </div>
+                <div class="col-6">
+                  <ul class="pagination hidden-xs pull-right">
+                    <li><a href="#">< </a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">></a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <Footer />
+    <Footer />
   </div>
 </template>
 
 <style scoped>
-.container{
-  width:100vw;
+.container-fluid {
+  width: 100vw;
+  padding: 0;
 }
 .customer-icon {
   width: 50px;
@@ -169,12 +144,11 @@ export default {
 }
 .panel {
   margin-top: 10px;
-  background: linear-gradient(to right, #0099ff, #307cc7);
+  background: linear-gradient(to right, #96d0c3, #c9bdd9);
   padding: 0;
   border-radius: 10px;
   border: none;
-  margin-top:10px;
-  width:100vw;
+  width: 100%;
 }
 .panel .panel-heading {
   padding: 20px 15px;
@@ -197,8 +171,8 @@ export default {
   border: 2px solid #fff;
   border-radius: 50px;
   transition: all 0.3s ease 0s;
-  height:43px;
-  margin-left:5px;
+  height: 43px;
+  margin-left: 5px;
 }
 .panel .panel-heading .btn:hover {
   color: #fff;
@@ -207,7 +181,7 @@ export default {
 .panel .panel-heading .form-control {
   color: #fff;
   background-color: transparent;
-  width: 35%;
+  width: 100%;
   height: 40px;
   border: 2px solid #fff;
   border-radius: 20px;
@@ -242,6 +216,7 @@ export default {
   padding: 10px 12px;
   vertical-align: middle;
   border: none;
+  word-break: break-word; /* Ensure long text wraps properly */
 }
 .panel .panel-body .table tbody tr:nth-child(even) {
   background-color: rgba(255, 255, 255, 0.05);
@@ -297,103 +272,28 @@ export default {
 }
 .panel .panel-footer {
   color: #fff;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 15px;
+  border-radius: 0 0 10px 10px;
   border: none;
 }
 .panel .panel-footer .col {
   line-height: 35px;
 }
-.pagination {
+.panel .panel-footer .pagination {
   margin: 0;
 }
-.pagination li a {
+.panel .panel-footer .pagination li a {
   color: #fff;
   background-color: transparent;
   border: 2px solid transparent;
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
-  line-height: 31px;
-  width: 35px;
-  height: 35px;
-  padding: 0;
-  margin: 0 3px;
-  border-radius: 50px;
+  border-radius: 50%;
   transition: all 0.3s ease 0s;
 }
-.pagination li a:hover {
-  color: #fff;
-  background-color: transparent;
-  border-color: rgba(255, 255, 255, 0.2);
-}
-.pagination li a:focus,
-.pagination li.active a,
-.pagination li.active a:hover {
+.panel .panel-footer .pagination li:hover a,
+.panel .panel-footer .pagination li.active a {
   color: #fff;
   background-color: transparent;
   border-color: #fff;
-}
-.pagination li:first-child a,
-.pagination li:last-child a {
-  border-radius: 50%;
-}
-
-@media (max-width: 576px) {
-  .panel .panel-heading .title {
-    font-size: 20px;
-    text-align: center;
-  }
-  .panel .panel-heading .form-control {
-    
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  .panel .panel-heading .btn_group {
-    text-align: center;
-    display:flex;
-  }
-  .panel .panel-footer .col {
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  .panel .pagination {
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .panel .pagination li a {
-    width: 25px;
-    height: 25px;
-    line-height: 23px;
-    font-size: 14px;
-  }
-  .panel .panel-body .table {
-    font-size: 12px;
-  }
-  .panel .panel-body .table thead {
-    display: none;
-  }
-  .panel .panel-body .table tbody tr {
-    display: block;
-    margin-bottom: 10px;
-
- }
-  .panel .panel-body .table tbody tr td {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .panel .panel-body .table tbody tr td:before {
-    content: attr(data-label);
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  .panel .panel-body .table tbody tr td:last-child {
-    display: flex;
-    justify-content: center;
-  }
 }
 </style>
