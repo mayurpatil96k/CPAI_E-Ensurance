@@ -1,15 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import router from '@/router';
 
-const form$ = ref(null)
+interface ReqData {
+  email: string
+  username: string
+  fullName: string
+  password: string
+}
+const emit = defineEmits(['submitSuccess'])
 
-const handleSubmit = async (form$: { data: any; }, FormData: any) => {
-  
-  const data = form$.data
-  console.log(data)
-  console.log(form$.requestData)
+
+const handleSubmit = async (formRef: { requestData: ReqData }, formData: ReqData) => {
+
+  emit('submitSuccess',formRef.requestData)
 }
 </script>
+
 <template>
   <Vueform
   :endpoint="false" @submit="handleSubmit"

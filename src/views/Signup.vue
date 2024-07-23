@@ -1,33 +1,27 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import AdminSignup from '@/components/Signup/AdminSignup.vue';
+import router from '@/router';
 
-const router = useRouter()
-const route = useRoute()
+const SubmitEvent = (data: any) => {
+  console.log('Data from child:', data);
+  setTimeout(()=>{
+    router.push('/Login/adminLogin')
+  },5000)
+  
+};
 
-const activeButton = ref('')
-
-const navigateTo = (routeName: string) => {
-  activeButton.value = routeName
-  router.push({ name: routeName })
-}
-
-watch(() => route.name, (newRoute) => {
-  if (typeof newRoute === 'string') {
-    activeButton.value = newRoute
-  }
-}, { immediate: true }) 
 </script>
 
 <template>
   <div class="container u-height d-flex align-items-center justify-content-center">
     <div class="card">
       <div class="card-body border border-danger border-5 rounded-3">
-        <RouterView />
+        <AdminSignup @submit-success="SubmitEvent"/>
       </div>
     </div>
   </div>
+  
 </template>
 
 

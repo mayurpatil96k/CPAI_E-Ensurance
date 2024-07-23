@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const form$ = ref(null)
 
 const handleSubmit = async (form$: { data: any; }, FormData: any) => {
   
