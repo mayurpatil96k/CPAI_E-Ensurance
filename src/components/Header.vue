@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar pr-md-5 navbar-expand-lg navbar-light bg-primary" >
+  <nav class="navbar pr-md-5 navbar-expand-lg navbar-light bg-success" >
     <div class="container-fluid">
       <a class="navbar-brand u-color" href="#">Navbar</a>
       <button
@@ -37,13 +37,13 @@
   color: white !important;
 }
 .navbar {
-  width: 98.8vw;
+  width: 100%;
 }
   .u-color{
     color: white !important;
   }
   .navbar{
-    width:98.8vw;
+    width:100%;
     /* padding :1rem 12rem ; */
    
   }
