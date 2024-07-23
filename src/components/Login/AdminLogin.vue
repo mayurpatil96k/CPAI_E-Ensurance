@@ -1,11 +1,18 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
-const data = ref({})
+const form$ = ref(null)
+
+const handleSubmit = async (form$, FormData) => {
+  
+  const data = form$.data
+  console.log(data)
+  console.log(form$)
+}
 </script>
 <template>
   <Vueform
-   v-model="data"
+  :endpoint="false" @submit="handleSubmit"
     size="md"
     :display-errors="false"
     add-class="vf-create-account"

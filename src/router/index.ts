@@ -8,6 +8,7 @@ import Login from '../views/Login.vue'
 import AdminLogin from '@/components/Login/AdminLogin.vue'
 import CustomerPolicies from '../components/Policies/CustomerPolicies.vue'
 import MyPolicy from '../components/Policies/MyPolicy.vue'
+import EmployeeLogin from '@/components/Login/EmployeeLogin.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -47,6 +48,11 @@ const router = createRouter({
           path: '/Login/adminLogin',
           name: 'adminLogin',
           component: AdminLogin,
+        },
+        {
+          path: '/Login/EmployeeLogin',
+          name: 'EmployeeLogin',
+          component: EmployeeLogin,
         },
         
       ]
