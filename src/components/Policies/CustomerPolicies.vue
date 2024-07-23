@@ -149,10 +149,12 @@ export default {
   font-family: 'Noto Sans', sans-serif;
 }
 .panel {
+  margin-top: 10px;
   background: linear-gradient(to right, #2980b9, #2c3e50);
   padding: 0;
   border-radius: 10px;
   border: none;
+  margin-top:10px;
   box-shadow:
     0 0 0 5px rgba(0, 0, 0, 0.05),
     0 0 0 10px rgba(0, 0, 0, 0.05);
@@ -178,6 +180,8 @@ export default {
   border: 2px solid #fff;
   border-radius: 50px;
   transition: all 0.3s ease 0s;
+  height:43px;
+  margin-left:5px;
 }
 .panel .panel-heading .btn:hover {
   color: #fff;
@@ -317,5 +321,62 @@ export default {
 .pagination li:last-child a {
   border-radius: 50%;
 }
+
+@media (max-width: 576px) {
+  .panel .panel-heading .title {
+    font-size: 20px;
+    text-align: center;
+  }
+  .panel .panel-heading .form-control {
+    
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .panel .panel-heading .btn_group {
+    text-align: center;
+    display:flex;
+  }
+  .panel .panel-footer .col {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .panel .pagination {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .panel .pagination li a {
+    width: 25px;
+    height: 25px;
+    line-height: 23px;
+    font-size: 14px;
+  }
+  .panel .panel-body .table {
+    font-size: 12px;
+  }
+  .panel .panel-body .table thead {
+    display: none;
+  }
+  .panel .panel-body .table tbody tr {
+    display: block;
+    margin-bottom: 10px;
+
+ }
+  .panel .panel-body .table tbody tr td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .panel .panel-body .table tbody tr td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .panel .panel-body .table tbody tr td:last-child {
+    display: flex;
+    justify-content: center;
+  }
+}
 </style>
- 
