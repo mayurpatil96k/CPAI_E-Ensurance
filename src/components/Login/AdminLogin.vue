@@ -1,17 +1,22 @@
 <script setup lang="ts">
+import router from '@/router';
 import { ref } from 'vue'
 
-
-const handleSubmit = async (form$: { data: any; }, FormData: any) => {
-  
+interface loginData {
+  email: string
+  password: string
+  role: string
+}
+const handleSubmit = async (form$: { data: loginData }, FormData: any) => {
   const data = form$.data
   console.log(data)
-  console.log(form$)
+  router.push('/customerpolicies')
 }
 </script>
 <template>
   <Vueform
-  :endpoint="false" @submit="handleSubmit"
+    :endpoint="false"
+    @submit="handleSubmit"
     size="md"
     :display-errors="false"
     add-class="vf-create-account"
@@ -19,27 +24,20 @@ const handleSubmit = async (form$: { data: any; }, FormData: any) => {
     <TextElement
       name="email"
       input-type="email"
-      :rules="[
-        'required',
-        'max:255',
-        'email',
-      ]"
+      :rules="['required', 'max:255', 'email']"
       field-name="Email"
       label="Email"
     />
     <TextElement
       name="password"
       input-type="password"
-      :rules="[
-        'required',
-        'min:8',
-      ]"
+      :rules="['required', 'min:8']"
       field-name="Password"
       label="Password"
       :columns="{
         lg: {
-          container: 12,
-        },
+          container: 12
+        }
       }"
     />
     <SelectElement
@@ -47,26 +45,24 @@ const handleSubmit = async (form$: { data: any; }, FormData: any) => {
       :items="[
         {
           value: 'Agent',
-          label: 'Agent',
+          label: 'Agent'
         },
         {
           value: 'Admin',
-          label: 'Admin',
+          label: 'Admin'
         },
         {
           value: 'Employee',
-          label: 'Employee',
+          label: 'Employee'
         },
         {
           value: 'Customer',
-          label: 'Customer',
-        },
+          label: 'Customer'
+        }
       ]"
       :native="false"
       label="Select Role"
-      :rules="[
-        'required',
-      ]"
+      :rules="['required']"
     />
     <ButtonElement
       name="Login"
@@ -101,10 +97,10 @@ const handleSubmit = async (form$: { data: any; }, FormData: any) => {
   --vf-gray-700: #374151;
   --vf-gray-800: #1f2937;
   --vf-gray-900: #111827;
-  --vf-dark-50: #EFEFEF;
-  --vf-dark-100: #DCDCDC;
-  --vf-dark-200: #BDBDBD;
-  --vf-dark-300: #A0A0A0;
+  --vf-dark-50: #efefef;
+  --vf-dark-100: #dcdcdc;
+  --vf-dark-200: #bdbdbd;
+  --vf-dark-300: #a0a0a0;
   --vf-dark-400: #848484;
   --vf-dark-500: #737373;
   --vf-dark-600: #393939;
@@ -324,14 +320,14 @@ const handleSubmit = async (form$: { data: any; }, FormData: any) => {
   --vf-border-width-toggle: 0.125rem;
   --vf-border-width-tag: 1px;
   --vf-border-width-blockquote: 3px;
-  --vf-shadow-input: 0px 0px 0px 0px rgba(0,0,0,0);
-  --vf-shadow-input-hover: 0px 0px 0px 0px rgba(0,0,0,0);
-  --vf-shadow-input-focus: 0px 0px 0px 0px rgba(0,0,0,0);
-  --vf-shadow-handles: 0px 0px 0px 0px rgba(0,0,0,0);
-  --vf-shadow-handles-hover: 0px 0px 0px 0px rgba(0,0,0,0);
-  --vf-shadow-handles-focus: 0px 0px 0px 0px rgba(0,0,0,0);
-  --vf-shadow-btn: 0px 0px 0px 0px rgba(0,0,0,0);
-  --vf-shadow-dropdown: 0px 0px 0px 0px rgba(0,0,0,0);
+  --vf-shadow-input: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --vf-shadow-input-hover: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --vf-shadow-input-focus: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --vf-shadow-handles: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --vf-shadow-handles-hover: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --vf-shadow-handles-focus: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --vf-shadow-btn: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --vf-shadow-dropdown: 0px 0px 0px 0px rgba(0, 0, 0, 0);
   --vf-radius-input: 0.25rem;
   --vf-radius-input-sm: 0.25rem;
   --vf-radius-input-lg: 0.25rem;
