@@ -1,91 +1,70 @@
-
 <script>
 import { ref } from 'vue'
 import { useVueform, Vueform } from '@vueform/vueform'
 export default {
   mixins: [Vueform],
-  setup(props, context)
-  {
+  setup(props, context) {
     const form = useVueform(props, context)
     const vueform = ref({
       displayErrors: false,
       size: 'md',
       addClass: 'vf-create-account',
-     
+
       schema: {
-       
-       
         username: {
           type: 'text',
           label: 'Username',
-            rules: [
-                'required',
-                'min:8',
-            ],
+          rules: ['required', 'min:8']
         },
         fullname: {
           type: 'text',
           label: 'Full Name',
-          rules: [
-            'required',
-            'min:8',
-          ],
+          rules: ['required', 'min:8']
         },
         email: {
           type: 'text',
           inputType: 'email',
-          rules: [
-            'required',
-            'email',
-          ],
-          label: 'Email',
+          rules: ['required', 'email'],
+          label: 'Email'
         },
-        
+
         password: {
           type: 'text',
           inputType: 'password',
           label: 'Password',
-          rules: [
-            'required',
-            'min:8',
-          ],
+          rules: ['required', 'min:8']
         },
         password_confirmation: {
           type: 'text',
           inputType: 'password',
           label: 'Confirm Password',
-          rules: [
-            'required',
-            'min:8',
-            'same:password',
-          ],
+          rules: ['required', 'min:8', 'same:password']
         },
-        
-       
+
         register: {
           type: 'button',
           submits: true,
           buttonLabel: 'Create account',
           full: true,
           size: 'lg',
-          danger:true,
-        },
+          danger: true
+        }
       },
       onSubmit() {
         console.log('submit')
         console.log(form.data._value)
       },
-    beforeCreate() {
-      console.log('beforeCreate')
-    },
-    mounted() {
-      console.log('mounted')
-    },
+      beforeCreate() {
+        console.log('beforeCreate')
+      },
+      mounted() {
+        console.log('mounted')
+      }
     })
 
     return {
       ...form,
-      vueform,
+      vueform
     }
   }
 }
@@ -113,10 +92,10 @@ export default {
   --vf-gray-700: #374151;
   --vf-gray-800: #1f2937;
   --vf-gray-900: #111827;
-  --vf-dark-50: #EFEFEF;
-  --vf-dark-100: #DCDCDC;
-  --vf-dark-200: #BDBDBD;
-  --vf-dark-300: #A0A0A0;
+  --vf-dark-50: #efefef;
+  --vf-dark-100: #dcdcdc;
+  --vf-dark-200: #bdbdbd;
+  --vf-dark-300: #a0a0a0;
   --vf-dark-400: #848484;
   --vf-dark-500: #737373;
   --vf-dark-600: #393939;
@@ -336,14 +315,14 @@ export default {
   --vf-border-width-toggle: 0.125rem;
   --vf-border-width-tag: 1px;
   --vf-border-width-blockquote: 3px;
-  --vf-shadow-input: 0px 0px 0px 0px rgba(0,0,0,0);
-  --vf-shadow-input-hover: 0px 0px 0px 0px rgba(0,0,0,0);
-  --vf-shadow-input-focus: 0px 0px 0px 0px rgba(0,0,0,0);
-  --vf-shadow-handles: 0px 0px 0px 0px rgba(0,0,0,0);
-  --vf-shadow-handles-hover: 0px 0px 0px 0px rgba(0,0,0,0);
-  --vf-shadow-handles-focus: 0px 0px 0px 0px rgba(0,0,0,0);
-  --vf-shadow-btn: 0px 0px 0px 0px rgba(0,0,0,0);
-  --vf-shadow-dropdown: 0px 0px 0px 0px rgba(0,0,0,0);
+  --vf-shadow-input: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --vf-shadow-input-hover: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --vf-shadow-input-focus: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --vf-shadow-handles: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --vf-shadow-handles-hover: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --vf-shadow-handles-focus: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --vf-shadow-btn: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  --vf-shadow-dropdown: 0px 0px 0px 0px rgba(0, 0, 0, 0);
   --vf-radius-input: 0.25rem;
   --vf-radius-input-sm: 0.25rem;
   --vf-radius-input-lg: 0.25rem;

@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 const form$ = ref(null)
 
-const handleSubmit = async (form$, FormData) => {
+const handleSubmit = async (form$: { data: any; }, FormData: any) => {
   
   const data = form$.data
   console.log(data)
@@ -44,7 +44,7 @@ const handleSubmit = async (form$, FormData) => {
       }"
     />
     <SelectElement
-      name="select"
+      name="role"
       :items="[
         {
           value: 'Agent',

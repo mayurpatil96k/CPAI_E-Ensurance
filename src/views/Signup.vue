@@ -33,17 +33,9 @@ watch(() => route.name, (newRoute) => {
             :class="['text-link', activeButton === 'AdminSignup' ? 'active' : '']"
           >Admin</span>
           <span 
-            @click="navigateTo('AgentSignup')" 
-            :class="['text-link', activeButton === 'AgentSignup' ? 'active' : '']"
-          >Agent</span>
-          <span 
             @click="navigateTo('CustomerSignup')" 
             :class="['text-link', activeButton === 'CustomerSignup' ? 'active' : '']"
           >Customer</span>
-          <span 
-            @click="navigateTo('EmployeeSignup')" 
-            :class="['text-link', activeButton === 'EmployeeSignup' ? 'active' : '']"
-          >Employee</span>
         </div>
         <RouterView />
       </div>
