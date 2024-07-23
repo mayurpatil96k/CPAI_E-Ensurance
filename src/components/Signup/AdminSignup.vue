@@ -85,7 +85,7 @@ const handleSubmit = async (formRef: { requestData: ReqData }, formData: ReqData
   </Vueform>
 </template>
 
-<style>
+<style scoped>
 .vf-create-account *,
 .vf-create-account *:before,
 .vf-create-account *:after,

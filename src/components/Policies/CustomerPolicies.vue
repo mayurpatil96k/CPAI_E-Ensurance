@@ -66,11 +66,11 @@ export default {
 }
 </script>
 <template>
+  <div class="dashboard">
   <Header />
-
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-offset-1 col-md-10">
+      <div class="" style="width: 100vw;">
         <div class="panel">
           <div class="panel-heading">
             <div class="row">
@@ -150,28 +150,31 @@ export default {
     </div>
   </div>
   <Footer />
+  </div>
 </template>
 
 <style scoped>
+.container{
+  width:100vw;
+}
 .customer-icon {
   width: 50px;
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
 }
+
 .demo {
   font-family: 'Noto Sans', sans-serif;
 }
 .panel {
   margin-top: 10px;
-  background: linear-gradient(to right, #2980b9, #2c3e50);
+  background: linear-gradient(to right, #0099ff, #307cc7);
   padding: 0;
   border-radius: 10px;
   border: none;
   margin-top:10px;
-  box-shadow:
-    0 0 0 5px rgba(0, 0, 0, 0.05),
-    0 0 0 10px rgba(0, 0, 0, 0.05);
+  width:100vw;
 }
 .panel .panel-heading {
   padding: 20px 15px;
