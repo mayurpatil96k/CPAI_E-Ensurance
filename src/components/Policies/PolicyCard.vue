@@ -21,7 +21,7 @@
     </div>
   </template>
   
-  <style>
+  <style scoped>
     .text-justify {
       text-align: justify;
     }

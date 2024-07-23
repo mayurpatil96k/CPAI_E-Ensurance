@@ -66,12 +66,12 @@ export default {
 }
 </script>
 <template>
+  <div class="dashboard">
   <Header />
-
-  <div class="container w-100">
-    <div class="row justify-content-center w-100">
-      <div class="col-md-offset-1 col-md-10 w-100">
-        <div class="panel w-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="" style="width: 100vw;">
+        <div class="panel">
           <div class="panel-heading">
             <div class="row d-flex align-content-center ">
               <div class="col col-sm-4 col-xs-12">
@@ -150,28 +150,31 @@ export default {
     </div>
   </div>
   <Footer />
+  </div>
 </template>
 
 <style scoped>
+.container{
+  width:100vw;
+}
 .customer-icon {
   width: 50px;
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
 }
+
 .demo {
   font-family: 'Noto Sans', sans-serif;
 }
 .panel {
   margin-top: 10px;
-  background: linear-gradient(to right, #2980b9, #2c3e50);
+  background: linear-gradient(to right, #0099ff, #307cc7);
   padding: 0;
   border-radius: 10px;
   border: none;
   margin-top:10px;
-  box-shadow:
-    0 0 0 5px rgba(0, 0, 0, 0.05),
-    0 0 0 10px rgba(0, 0, 0, 0.05);
+  width:100vw;
 }
 .panel .panel-heading {
   padding: 20px 15px;
