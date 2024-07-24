@@ -1,17 +1,175 @@
-<script setup lang="ts">
-import Header from '../components/Header.vue'
-import Footer from '@/components/Footer.vue';
-import CustomerPolicies from '@/components/Agents/CustomerPolicies.vue';
-import { RouterView } from 'vue-router';
-
+<script lang='ts'>
+import Header from '../Header.vue'
+import Footer from '../Footer.vue'
+export default {
+  components: {
+    Header,
+    Footer
+  },
+  data() {
+    return {
+      customers: [
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A005',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A006',
+          image: 'public/ElonMusk.jpeg'
+        }
+      ],
+      totalcustomers: 25,
+      searchQuery: ''
+    }
+  },
+  computed: {
+    filteredCustomers() {
+      if (!this.searchQuery) {
+        return this.customers;
+      }
+      const lowercasedQuery = this.searchQuery.toLowerCase();
+      return this.customers.filter(customer =>
+        customer.name.toLowerCase().includes(lowercasedQuery) ||
+        customer.email.toLowerCase().includes(lowercasedQuery) ||
+        customer.phone.includes(lowercasedQuery) ||
+        customer.agentId.toLowerCase().includes(lowercasedQuery)
+      );
+    }
+  },
+  methods: {
+    reloadPage() {
+      window.location.reload();
+    }
+  }  
+}
 </script>
 <template>
   
-  <Header />
-  <!-- <CustomerPolicies/> -->
-  <RouterView/>
+
+  <div class="container1">
+    <div class="justify-content-center cont1">
+      <div class="col-md-offset-1 col-lr-12 ">
+        <div class="panel">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col col-sm-3 col-xs-12">
+                <h4 class="title">Customer <span></span></h4>
+              </div>
+              <div class="col-sm-9 col-xs-12 text-right">
+                <div class="btn_group">
+                  <input type="text" class="form-control" placeholder="Search" v-model="searchQuery"/>
+                  <button class="btn btn-default" title="Reload" @click="reloadPage">
+                    <i class="mdi mdi-sync-circle" style='font-size:18px'></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Image</th>
+                  <th>Full Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(customer, index) in filteredCustomers" :key="index">
+                  <td>{{ index + 1 }}</td>
+                  <td>
+                    <img
+                      :src="customer.image"
+                      alt="Customer Image"
+                      class="img-thumbnail customer-icon"
+                    />
+                  </td>
+
+                  <td>{{ customer.name }}</td>
+                  <td>{{ customer.email }}</td>
+                  <td>{{ customer.phone }}</td>
+                  <td>{{ customer.dob }}</td>
+                  <td>{{ customer.agentId }}</td>
+                  <td>
+                    <ul class="action-list">
+                      <li>
+                        <a href="#" data-tip="edit"><i class="fa fa-edit"></i></a>
+                      </li>
+                      <li>
+                        <a href="#" data-tip="delete"><i class="fa fa-trash"></i></a>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col col-sm-6 col-xs-6">
+                showing <b>{{ filteredCustomers.length }}</b> out of <b>{{ totalcustomers }}</b> entries
+              </div>
+              <div class="col-sm-6 col-xs-6">
+                <ul class="pagination hidden-xs pull-right">
+                  <li><a href="#">< </a></li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   
-  <Footer class="footer"/>
 </template>
 
 <style scoped>
