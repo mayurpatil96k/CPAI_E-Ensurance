@@ -18,6 +18,62 @@ export default {
           image: 'public/AnantAmbani.avif'
         },
         {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
+        },
+        {
           name: 'Elon Musk',
           email: 'elon@example.com',
           phone: '987-654-3210',
@@ -83,8 +139,9 @@ export default {
         },
 
       ],
-      totalcustomers: 25,
-      searchQuery: ''
+      searchQuery: '',
+      currentPage: 1,
+      itemsPerPage: 6
     }
   },
   computed: {
@@ -99,7 +156,15 @@ export default {
           customer.email.toLowerCase().includes(lowercasedQuery) ||
           customer.phone.includes(lowercasedQuery) ||
           customer.agentId.toLowerCase().includes(lowercasedQuery)
-      )
+      ) 
+    },
+    paginatedCustomers() {
+      const start = (this.currentPage - 1) * this.itemsPerPage;
+      const end = start + this.itemsPerPage;
+      return this.filteredCustomers.slice(start, end);
+    },
+    totalPages() {
+      return Math.ceil(this.filteredCustomers.length / this.itemsPerPage);
     }
   },
   methods: {
@@ -114,6 +179,9 @@ export default {
     deleteItem() {
       // Logic to delete the item
       console.log('Item deleted');
+    },
+    changePage(page) {
+      this.currentPage = page;
     }
   }
 }
@@ -158,8 +226,8 @@ export default {
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(customer, index) in filteredCustomers" :key="index">
-                  <td>{{ index + 1 }}</td>
+                <tr v-for="(customer, index) in paginatedCustomers" :key="index">
+                  <td>{{ (currentPage - 1) * itemsPerPage + index + 1 }}</td>
                   <td>
                     <img
                       src="/public/AnantAmbani.avif"
@@ -187,18 +255,20 @@ export default {
           <div class="panel-footer">
             <div class="row">
               <div class="col col-sm-6 col-xs-6">
-                showing <b>{{ filteredCustomers.length }}</b> out of
-                <b>{{ totalcustomers }}</b> entries
+                showing <b>{{ paginatedCustomers.length }}</b> out of
+                <b>{{ filteredCustomers.length }}</b> entries
               </div>
               <div class="col-sm-6 col-xs-6">
                 <ul class="pagination hidden-xs pull-right">
-                  <li><a href="#">< </a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">></a></li>
+                  <li :class="{ disabled: currentPage === 1 }">
+                    <a href="#" @click.prevent="changePage(currentPage - 1)">«</a>
+                  </li>
+                  <li v-for="page in totalPages" :key="page" :class="{ active: currentPage === page }">
+                    <a href="#" @click.prevent="changePage(page)">{{ page }}</a>
+                  </li>
+                  <li :class="{ disabled: currentPage === totalPages }">
+                    <a href="#" @click.prevent="changePage(currentPage + 1)">»</a>
+                  </li>
                 </ul>
               </div>
             </div>
