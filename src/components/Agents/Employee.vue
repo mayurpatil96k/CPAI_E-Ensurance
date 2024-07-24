@@ -1,10 +1,13 @@
-<script lang='ts'>
+<script lang="ts">
 import Header from '../Header.vue'
 import Footer from '../Footer.vue'
+import CreateEmployee from './CreateEmployee.vue';
+
 export default {
   components: {
     Header,
-    Footer
+    Footer,
+    CreateEmployee
   },
   data() {
     return {
@@ -13,79 +16,188 @@ export default {
           name: 'Anant Ambani',
           email: 'anant@example.com',
           phone: '123-456-7890',
-          username: '1995-04-10',
+          username: '1995-04-10'
         },
         {
           name: 'Elon Musk',
           email: 'elon@example.com',
           phone: '987-654-3210',
-          username: '1995-04-10',
+          username: '1995-04-10'
         },
         {
           name: 'Anant Ambani',
           email: 'anant@example.com',
           phone: '123-456-7890',
-          username: '1995-04-10',
+          username: '1995-04-10'
         },
         {
           name: 'Elon Musk',
           email: 'elon@example.com',
           phone: '987-654-3210',
-          username: '1995-04-10',
+          username: '1995-04-10'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          username: '1995-04-10'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          username: '1995-04-10'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          username: '1995-04-10'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          username: '1995-04-10'
         },{
           name: 'Anant Ambani',
           email: 'anant@example.com',
           phone: '123-456-7890',
-          username: '1995-04-10',
+          username: '1995-04-10'
         },
         {
           name: 'Elon Musk',
           email: 'elon@example.com',
           phone: '987-654-3210',
-          username: '1995-04-10',
+          username: '1995-04-10'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          username: '1995-04-10'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          username: '1995-04-10'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          username: '1995-04-10'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          username: '1995-04-10'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          username: '1995-04-10'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          username: '1995-04-10'
         },{
           name: 'Anant Ambani',
           email: 'anant@example.com',
           phone: '123-456-7890',
-          username: '1995-04-10',
+          username: '1995-04-10'
         },
         {
           name: 'Elon Musk',
           email: 'elon@example.com',
           phone: '987-654-3210',
-          username: '1995-04-10',
+          username: '1995-04-10'
         },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          username: '1995-04-10'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          username: '1995-04-10'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          username: '1995-04-10'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          username: '1995-04-10'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          username: '1995-04-10'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          username: '1995-04-10'
+        }
       ],
-      totalcustomers: 25,
-      searchQuery: ''
+      totalCustomers: 25,
+      searchQuery: '',
+      currentPage: 1,
+      itemsPerPage: 10
     }
   },
   computed: {
     filteredCustomers() {
       if (!this.searchQuery) {
-        return this.customers;
+        return this.customers
       }
-      const lowercasedQuery = this.searchQuery.toLowerCase();
-      return this.customers.filter(customer =>
-        customer.name.toLowerCase().includes(lowercasedQuery) ||
-        customer.email.toLowerCase().includes(lowercasedQuery) ||
-        customer.phone.includes(lowercasedQuery) 
-      );
+      const lowercasedQuery = this.searchQuery.toLowerCase()
+      return this.customers.filter(
+        (customer) =>
+          customer.name.toLowerCase().includes(lowercasedQuery) ||
+          customer.email.toLowerCase().includes(lowercasedQuery) ||
+          customer.phone.includes(lowercasedQuery)
+      )
+    },
+    paginatedCustomers() {
+      const start = (this.currentPage - 1) * this.itemsPerPage
+      const end = start + this.itemsPerPage
+      return this.filteredCustomers.slice(start, end)
+    },
+    totalPages() {
+      return Math.ceil(this.filteredCustomers.length / this.itemsPerPage)
     }
   },
   methods: {
     reloadPage() {
-      window.location.reload();
+      window.location.reload()
+    },
+    changePage(pageNumber: number) {
+      this.currentPage = pageNumber
     }
-  }  
+  }
 }
 </script>
-<template>
-  
 
+<template>
   <div class="container1">
     <div class="justify-content-center cont1">
-      <div class="col-md-offset-1 col-lr-12 ">
+      <div class="col-md-offset-1 col-lr-12">
         <div class="panel">
           <div class="panel-heading">
             <div class="row">
@@ -94,10 +206,13 @@ export default {
               </div>
               <div class="col-sm-9 col-xs-12 text-right">
                 <div class="btn_group">
-                  <input type="text" class="form-control" placeholder="Search" v-model="searchQuery"/>
-                  <button class="btn btn-default" title="Reload" @click="reloadPage">
-                    Add
-                  </button>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search"
+                    v-model="searchQuery"
+                  />
+                  <button class="btn btn-default" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Add New Employee">Add</button>
                 </div>
               </div>
             </div>
@@ -114,8 +229,8 @@ export default {
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(customer, index) in filteredCustomers" :key="index">
-                  <td>{{ index + 1 }}</td>
+                <tr v-for="(customer, index) in paginatedCustomers" :key="index">
+                  <td>{{ index + 1 + (currentPage - 1) * itemsPerPage }}</td>
                   <td>{{ customer.name }}</td>
                   <td>{{ customer.email }}</td>
                   <td>{{ customer.username }}</td>
@@ -136,17 +251,24 @@ export default {
           <div class="panel-footer">
             <div class="row">
               <div class="col col-sm-6 col-xs-6">
-                showing <b>{{ filteredCustomers.length }}</b> out of <b>{{ totalcustomers }}</b> entries
+                showing <b>{{ paginatedCustomers.length }}</b> out of
+                <b>{{ filteredCustomers.length }}</b> entries
               </div>
               <div class="col-sm-6 col-xs-6">
                 <ul class="pagination hidden-xs pull-right">
-                  <li><a href="#">< </a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">></a></li>
+                  <li v-if="currentPage > 1" @click="changePage(currentPage - 1)">
+                    <a href="#"> < </a>
+                  </li>
+                  <li
+                    v-for="page in totalPages"
+                    :class="{ active: page === currentPage }"
+                    @click="changePage(page)"
+                  >
+                    <a href="#">{{ page }}</a>
+                  </li>
+                  <li v-if="currentPage < totalPages" @click="changePage(currentPage + 1)">
+                    <a href="#"> > </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -154,26 +276,25 @@ export default {
         </div>
       </div>
     </div>
+   <CreateEmployee/>
   </div>
-  
 </template>
 
 <style scoped>
-
 .customer-icon {
   width: 50px;
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
 }
-.container1{
-  position:relative;
-  width:100%;
+.container1 {
+  position: relative;
+  width: 100%;
   /* margin-top:10px; */
 }
-.cont1{
-  width:100%;
-  position:relative;
+.cont1 {
+  width: 100%;
+  position: relative;
 }
 .demo {
   font-family: 'Noto Sans', sans-serif;
@@ -185,8 +306,8 @@ export default {
   /* border-radius: 10px; */
   border: none;
   /* margin-top:10px; */
-  width:100%;
-  position:relative;
+  width: 100%;
+  position: relative;
 }
 .panel .panel-heading {
   padding: 20px 15px;
@@ -209,8 +330,8 @@ export default {
   border: 2px solid #fff;
   border-radius: 50px;
   transition: all 0.3s ease 0s;
-  height:43px;
-  margin-left:5px;
+  height: 43px;
+  margin-left: 5px;
 }
 .panel .panel-heading .btn:hover {
   color: #fff;
@@ -240,7 +361,7 @@ export default {
   padding: 0;
 }
 .panel .panel-body .table thead tr th {
-    text-align: center;
+  text-align: center;
   color: #fff;
   background-color: rgba(255, 255, 255, 0.2);
   font-size: 16px;
@@ -336,7 +457,9 @@ export default {
   border: 1px solid transparent;
   border-radius: 5px;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .pagination li a:hover {
@@ -346,7 +469,7 @@ export default {
 
 .pagination li.active a {
   background-color: #13344b;
-  border-color:#13344b;
+  border-color: #13344b;
 }
 
 .pagination li a:first-child {
@@ -365,13 +488,12 @@ export default {
     text-align: center;
   }
   .panel .panel-heading .form-control {
-    
     width: 100%;
     margin-bottom: 10px;
   }
   .panel .panel-heading .btn_group {
     text-align: center;
-    display:flex;
+    display: flex;
   }
   .panel .panel-footer .col {
     text-align: center;
@@ -397,8 +519,7 @@ export default {
   .panel .panel-body .table tbody tr {
     display: block;
     /* margin-bottom: 10px; */
-
- }
+  }
   .panel .panel-body .table tbody tr td {
     display: flex;
     align-items: center;

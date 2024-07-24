@@ -16,13 +16,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active u-color" aria-current="page" href="#">Employee </a>
+            <router-link to="/admin/employee" class="u-color nav-link active">Employee</router-link>
+            <!-- <a class="nav-link active u-color" aria-current="page" href="#">Employee </a> -->
+          </li>
+          <li class="nav-item" >
+            <router-link to="/admin/agent" class="u-color nav-link active">Agent</router-link>
+            <!-- <a class="nav-link active u-color" aria-current="page" href="#">Agent </a> -->
           </li>
           <li class="nav-item">
-            <a class="nav-link active u-color" aria-current="page" href="#">Agent </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active u-color" aria-current="page" href="#">Customer </a>
+            <router-link to="/admin/customer" class="u-color nav-link active">Customer</router-link>
+            <!-- <a class="nav-link active u-color" aria-current="page" href="#">Customer </a> -->
           </li>
         </ul>
           <button class="btn btn-outline-light" type="submit">Logout</button>

@@ -9,7 +9,7 @@ import AdminLogin from '@/components/Login/AdminLogin.vue'
 import CustomerPolicies from '../components/Agents/CustomerPolicies.vue'
 import MyPolicy from '../components/Policies/MyPolicy.vue'
 import EmployeeLogin from '@/components/Login/EmployeeLogin.vue'
-import AgentDashboard from '@/views/AgentDashboard.vue'
+import AdminDashboard from '@/views/AdminDashboard.vue'
 import Employee from '@/components/Agents/Employee.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -60,16 +60,16 @@ const router = createRouter({
       ]
     },
     {
-      path:'/Agent',
+      path:'/admin',
       name:'AgentDashboard',
-      component:AgentDashboard,
+      component:AdminDashboard,
       children:[{
-        path: '/agent/customer',
+        path: '/admin/customer',
           name: 'CustomerPolicies',
           component: CustomerPolicies,
       },
       {
-        path: '/agent/employee',
+        path: '/admin/employee',
           name: 'Employee',
           component: Employee,
       },
