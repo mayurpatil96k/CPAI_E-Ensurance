@@ -9,6 +9,7 @@ import AdminLogin from '@/components/Login/AdminLogin.vue'
 import CustomerPolicies from '../components/Policies/CustomerPolicies.vue'
 import MyPolicy from '../components/Policies/MyPolicy.vue'
 import EmployeeLogin from '@/components/Login/EmployeeLogin.vue'
+import AgentDashboard from '@/views/AgentDashboard.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -58,9 +59,14 @@ const router = createRouter({
       ]
     },
     {
-      path:'/CustomerPolicies',
-      name:'CustomerPolicies',
-      component:CustomerPolicies,
+      path:'/Agent',
+      name:'AgentDashboard',
+      component:AgentDashboard,
+      children:[{
+        path: '/agent/employee',
+          name: 'CustomerPolicies',
+          component: CustomerPolicies,
+      }]
     },
     {
       // temp routing...
