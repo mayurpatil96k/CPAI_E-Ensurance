@@ -103,7 +103,6 @@
         button-label="Create account"
         :full="true"
         size="lg"
-        :danger="true"
       />
     </Vueform>
   </template>

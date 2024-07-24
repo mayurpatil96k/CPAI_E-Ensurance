@@ -65,7 +65,7 @@ export default {
           buttonLabel: 'Create account',
           full: true,
           size: 'lg',
-          danger: true,
+        
         },
       },
     })

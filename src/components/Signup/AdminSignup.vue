@@ -77,7 +77,6 @@ const handleSubmit = async (formRef: { requestData: ReqData }, formData: ReqData
     <ButtonElement
       name="submit"
       button-label="Submit"
-      :danger="true"
       :full="true"
       size="sm"
       :submits="true"
