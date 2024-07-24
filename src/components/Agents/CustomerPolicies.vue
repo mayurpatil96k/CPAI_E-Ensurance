@@ -56,7 +56,32 @@ export default {
           dob: '1995-04-10',
           agentId: 'A006',
           image: 'public/ElonMusk.jpeg'
-        }
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A006',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A006',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A006',
+          image: 'public/ElonMusk.jpeg'
+        },
+
       ],
       totalcustomers: 25,
       searchQuery: ''
@@ -80,6 +105,15 @@ export default {
   methods: {
     reloadPage() {
       window.location.reload()
+    },
+    confirmDelete() {
+      if (window.confirm('Are you sure you want to delete this Customer?' )) {
+        this.deleteItem();
+      }
+    },
+    deleteItem() {
+      // Logic to delete the item
+      console.log('Item deleted');
     }
   }
 }
@@ -114,7 +148,7 @@ export default {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Image</th>
+                  <!-- <th>Image</th> -->
                   <th>Full Name</th>
                   <th>Email</th>
                   <th>Phone</th>
@@ -126,13 +160,13 @@ export default {
               <tbody>
                 <tr v-for="(customer, index) in filteredCustomers" :key="index">
                   <td>{{ index + 1 }}</td>
-                  <td>
+                  <!-- <td>
                     <img
                       :src="customer.image"
                       alt="Customer Image"
-                      class="img-thumbnail customer-icon"
+                      class="img-thumbnail customer-icon2"
                     />
-                  </td>
+                  </td> -->
 
                   <td>{{ customer.name }}</td>
                   <td>{{ customer.email }}</td>
@@ -142,10 +176,7 @@ export default {
                   <td>
                     <ul class="action-list">
                       <li>
-                        <a href="#" data-tip="edit"><i class="fa fa-edit"></i></a>
-                      </li>
-                      <li>
-                        <a href="#" data-tip="delete"><i class="fa fa-trash"></i></a>
+                        <a href="#" @click.prevent="confirmDelete" data-tip="delete"><i class="fa fa-trash"></i></a>
                       </li>
                     </ul>
                   </td>
@@ -179,7 +210,7 @@ export default {
 </template>
 
 <style scoped>
-.customer-icon {
+.customer-icon2 {
   width: 50px;
   height: 50px;
   object-fit: cover;
