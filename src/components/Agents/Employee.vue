@@ -13,50 +13,48 @@ export default {
           name: 'Anant Ambani',
           email: 'anant@example.com',
           phone: '123-456-7890',
-          dob: '1995-04-10',
-          agentId: 'A001',
-          image: 'public/AnantAmbani.avif'
+          username: '1995-04-10',
         },
         {
           name: 'Elon Musk',
           email: 'elon@example.com',
           phone: '987-654-3210',
-          dob: '1995-04-10',
-          agentId: 'A001',
-          image: 'public/ElonMusk.jpeg'
+          username: '1995-04-10',
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          username: '1995-04-10',
         },
         {
           name: 'Elon Musk',
           email: 'elon@example.com',
           phone: '987-654-3210',
-          dob: '1995-04-10',
-          agentId: 'A001',
-          image: 'public/ElonMusk.jpeg'
+          username: '1995-04-10',
+        },{
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          username: '1995-04-10',
         },
         {
           name: 'Elon Musk',
           email: 'elon@example.com',
           phone: '987-654-3210',
-          dob: '1995-04-10',
-          agentId: 'A001',
-          image: 'public/ElonMusk.jpeg'
+          username: '1995-04-10',
+        },{
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          username: '1995-04-10',
         },
         {
           name: 'Elon Musk',
           email: 'elon@example.com',
           phone: '987-654-3210',
-          dob: '1995-04-10',
-          agentId: 'A005',
-          image: 'public/ElonMusk.jpeg'
+          username: '1995-04-10',
         },
-        {
-          name: 'Elon Musk',
-          email: 'elon@example.com',
-          phone: '987-654-3210',
-          dob: '1995-04-10',
-          agentId: 'A006',
-          image: 'public/ElonMusk.jpeg'
-        }
       ],
       totalcustomers: 25,
       searchQuery: ''
@@ -71,8 +69,7 @@ export default {
       return this.customers.filter(customer =>
         customer.name.toLowerCase().includes(lowercasedQuery) ||
         customer.email.toLowerCase().includes(lowercasedQuery) ||
-        customer.phone.includes(lowercasedQuery) ||
-        customer.agentId.toLowerCase().includes(lowercasedQuery)
+        customer.phone.includes(lowercasedQuery) 
       );
     }
   },
@@ -93,13 +90,13 @@ export default {
           <div class="panel-heading">
             <div class="row">
               <div class="col col-sm-3 col-xs-12">
-                <h4 class="title">Customer <span></span></h4>
+                <h4 class="title">Employee<span></span></h4>
               </div>
               <div class="col-sm-9 col-xs-12 text-right">
                 <div class="btn_group">
                   <input type="text" class="form-control" placeholder="Search" v-model="searchQuery"/>
                   <button class="btn btn-default" title="Reload" @click="reloadPage">
-                    <i class="mdi mdi-sync-circle" style='font-size:18px'></i>
+                    Add
                   </button>
                 </div>
               </div>
@@ -109,30 +106,19 @@ export default {
             <table class="table">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Image</th>
+                  <th>ID</th>
                   <th>Full Name</th>
                   <th>Email</th>
-                  <th>Phone</th>
+                  <th>Username</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="(customer, index) in filteredCustomers" :key="index">
                   <td>{{ index + 1 }}</td>
-                  <td>
-                    <img
-                      :src="customer.image"
-                      alt="Customer Image"
-                      class="img-thumbnail customer-icon"
-                    />
-                  </td>
-
                   <td>{{ customer.name }}</td>
                   <td>{{ customer.email }}</td>
-                  <td>{{ customer.phone }}</td>
-                  <td>{{ customer.dob }}</td>
-                  <td>{{ customer.agentId }}</td>
+                  <td>{{ customer.username }}</td>
                   <td>
                     <ul class="action-list">
                       <li>
@@ -254,6 +240,7 @@ export default {
   padding: 0;
 }
 .panel .panel-body .table thead tr th {
+    text-align: center;
   color: #fff;
   background-color: rgba(255, 255, 255, 0.2);
   font-size: 16px;
@@ -264,6 +251,7 @@ export default {
 }
 .panel .panel-body .table tbody tr td {
   color: #fff;
+  text-align: center;
   font-size: 15px;
   padding: 10px 12px;
   vertical-align: middle;
