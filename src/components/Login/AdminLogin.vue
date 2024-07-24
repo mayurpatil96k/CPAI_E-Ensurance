@@ -10,7 +10,7 @@ interface loginData {
 const handleSubmit = async (form$: { data: loginData }, FormData: any) => {
   const data = form$.data
   console.log(data)
-  router.push('/customerpolicies')
+  router.push('/admin/employee')
 }
 </script>
 <template>
