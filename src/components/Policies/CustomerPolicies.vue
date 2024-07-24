@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
 import Header from '../Header.vue'
 import Footer from '../Footer.vue'
 export default {
@@ -13,36 +13,48 @@ export default {
           name: 'Anant Ambani',
           email: 'anant@example.com',
           phone: '123-456-7890',
+          dob: '1995-04-10',
+          agentId: 'A001',
           image: 'public/AnantAmbani.avif'
         },
         {
           name: 'Elon Musk',
           email: 'elon@example.com',
           phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A001',
           image: 'public/ElonMusk.jpeg'
         },
         {
           name: 'Elon Musk',
           email: 'elon@example.com',
           phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A001',
           image: 'public/ElonMusk.jpeg'
         },
         {
           name: 'Elon Musk',
           email: 'elon@example.com',
           phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A001',
           image: 'public/ElonMusk.jpeg'
         },
         {
           name: 'Elon Musk',
           email: 'elon@example.com',
           phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A005',
           image: 'public/ElonMusk.jpeg'
         },
         {
           name: 'Elon Musk',
           email: 'elon@example.com',
           phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A006',
           image: 'public/ElonMusk.jpeg'
         }
       ],
@@ -59,7 +71,8 @@ export default {
       return this.customers.filter(customer =>
         customer.name.toLowerCase().includes(lowercasedQuery) ||
         customer.email.toLowerCase().includes(lowercasedQuery) ||
-        customer.phone.includes(lowercasedQuery)
+        customer.phone.includes(lowercasedQuery) ||
+        customer.agentId.toLowerCase().includes(lowercasedQuery)
       );
     }
   },
@@ -102,6 +115,8 @@ export default {
                   <th>Full Name</th>
                   <th>Email</th>
                   <th>Phone</th>
+                  <th>Date of birth</th>
+                  <th>Agent Id</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -119,6 +134,8 @@ export default {
                   <td>{{ customer.name }}</td>
                   <td>{{ customer.email }}</td>
                   <td>{{ customer.phone }}</td>
+                  <td>{{ customer.dob }}</td>
+                  <td>{{ customer.agentId }}</td>
                   <td>
                     <ul class="action-list">
                       <li>
