@@ -1,5 +1,27 @@
+<script lang="ts">
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import router from '@/router';
+
+export default {
+  setup() {
+    const route = useRoute();
+
+    const isActive = (path: string) => {
+      return route.path === path;
+    };
+    const logoutfun=()=>{
+      localStorage.clear();
+      router.push('/login/adminlogin')
+    }
+
+    return { isActive,logoutfun };
+  }
+};
+</script>
+
 <template>
-  <nav class="navbar pr-md-5 navbar-expand-lg navbar-light" style="background-color: #13344b;" >
+  <nav class="navbar pr-md-5 navbar-expand-lg navbar-light" style="background-color: #13344b;">
     <div class="container-fluid">
       <a class="navbar-brand u-color" href="#">E Insurance</a>
       <button
@@ -16,38 +38,33 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/admin/employee" class="u-color nav-link active">Employee</router-link>
-            <!-- <a class="nav-link active u-color" aria-current="page" href="#">Employee </a> -->
-          </li>
-          <li class="nav-item" >
-            <router-link to="/admin/agent" class="u-color nav-link active">Agent</router-link>
-            <!-- <a class="nav-link active u-color" aria-current="page" href="#">Agent </a> -->
+            <router-link class="mr-md-3" :class="{'u-color': true, 'active-link': isActive('/admin/employee')}" to="/admin/employee">Employee</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/admin/customer" class="u-color nav-link active">Customer</router-link>
-            <!-- <a class="nav-link active u-color" aria-current="page" href="#">Customer </a> -->
+            <router-link class="mr-md-3" :class="{'u-color': true, 'active-link': isActive('/admin/agent')}" to="/admin/agent">Agent</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="mr-md-3" :class="{'u-color': true, 'active-link': isActive('/admin/customer')}" to="/admin/customer">Customer</router-link>
           </li>
         </ul>
-          <button class="btn btn-outline-light" type="submit">Logout</button>
-      
+        <button class="btn btn-outline-light" type="submit" @click="logoutfun">Logout</button>
       </div>
     </div>
   </nav>
 </template>
 
+
 <style scoped>
 .u-color {
   color: white !important;
 }
+
 .navbar {
   width: 100%;
 }
-  .u-color{
-    color: white !important;
-  }
-  .navbar{
-    width:100%;
-    /* padding :1rem 12rem ; */
-   
-  }
+
+.active-link {
+  font-weight: bold; 
+}
 </style>
+
