@@ -148,7 +148,7 @@ export default {
               <thead>
                 <tr>
                   <th>#</th>
-                  <!-- <th>Image</th> -->
+                  <th>Image</th>
                   <th>Full Name</th>
                   <th>Email</th>
                   <th>Phone</th>
@@ -160,13 +160,13 @@ export default {
               <tbody>
                 <tr v-for="(customer, index) in filteredCustomers" :key="index">
                   <td>{{ index + 1 }}</td>
-                  <!-- <td>
+                  <td>
                     <img
-                      :src="customer.image"
+                      src="/public/AnantAmbani.avif"
                       alt="Customer Image"
                       class="img-thumbnail customer-icon2"
                     />
-                  </td> -->
+                  </td>
 
                   <td>{{ customer.name }}</td>
                   <td>{{ customer.email }}</td>
