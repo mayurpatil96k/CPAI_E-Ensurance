@@ -69,6 +69,11 @@ const router = createRouter({
       }]
     },
     {
+      path:'/customer',
+      name:'CustomerPolicies2',
+      component:CustomerPolicies,
+    },
+    {
       // temp routing...
       path:'/Mypolicy',
       name:'mypolicy',

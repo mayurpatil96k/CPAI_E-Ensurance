@@ -10,7 +10,6 @@ const SubmitEvent = (data: any) => {
   },5000)
   
 };
-
 </script>
 
 <template>
