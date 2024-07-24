@@ -10,6 +10,7 @@ import CustomerPolicies from '../components/Agents/CustomerPolicies.vue'
 import MyPolicy from '../components/Policies/MyPolicy.vue'
 import EmployeeLogin from '@/components/Login/EmployeeLogin.vue'
 import AgentDashboard from '@/views/AgentDashboard.vue'
+import Employee from '@/components/Agents/Employee.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -63,10 +64,16 @@ const router = createRouter({
       name:'AgentDashboard',
       component:AgentDashboard,
       children:[{
-        path: '/agent/employee',
+        path: '/agent/customer',
           name: 'CustomerPolicies',
           component: CustomerPolicies,
-      }]
+      },
+      {
+        path: '/agent/employee',
+          name: 'Employee',
+          component: Employee,
+      },
+    ]
     },
     {
       path:'/customer',
