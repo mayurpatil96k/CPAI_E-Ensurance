@@ -85,7 +85,6 @@ export default {
 </script>
 <template>
   
-  <Header />
 
   <div class="container1">
     <div class="justify-content-center cont1">
@@ -94,7 +93,7 @@ export default {
           <div class="panel-heading">
             <div class="row">
               <div class="col col-sm-3 col-xs-12">
-                <h4 class="title">Customer <span>Details</span></h4>
+                <h4 class="title">Customer <span></span></h4>
               </div>
               <div class="col-sm-9 col-xs-12 text-right">
                 <div class="btn_group">
@@ -173,7 +172,6 @@ export default {
     </div>
   </div>
   
-  <Footer class="footer"/>
 </template>
 
 <style scoped>
@@ -186,8 +184,8 @@ export default {
 }
 .container1{
   position:relative;
-  width:99vw;
-  margin-top:10px;
+  width:100%;
+  /* margin-top:10px; */
 }
 .cont1{
   width:100%;
@@ -197,12 +195,12 @@ export default {
   font-family: 'Noto Sans', sans-serif;
 }
 .panel {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   background: linear-gradient(to right, #13344b, #3a85d1);
   padding: 0;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   border: none;
-  margin-top:10px;
+  /* margin-top:10px; */
   width:100%;
   position:relative;
 }
@@ -361,8 +359,8 @@ export default {
 }
 
 .pagination li.active a {
-  background-color: #5ae37a;
-  border-color: #28a745;
+  background-color: #13344b;
+  border-color:#13344b;
 }
 
 .pagination li a:first-child {
@@ -391,7 +389,7 @@ export default {
   }
   .panel .panel-footer .col {
     text-align: center;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
   }
   .panel .pagination {
     justify-content: center;
@@ -412,7 +410,7 @@ export default {
   }
   .panel .panel-body .table tbody tr {
     display: block;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 
  }
   .panel .panel-body .table tbody tr td {

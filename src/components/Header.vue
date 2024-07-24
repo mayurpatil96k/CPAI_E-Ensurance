@@ -1,7 +1,7 @@
 <template>
-  <nav class="navbar pr-md-5 navbar-expand-lg navbar-light bg-primary" >
+  <nav class="navbar pr-md-5 navbar-expand-lg navbar-light" style="background-color: #13344b;" >
     <div class="container-fluid">
-      <a class="navbar-brand u-color" href="#">CPAI Insurance</a>
+      <a class="navbar-brand u-color" href="#">E Insurance</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -16,16 +16,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active u-color" aria-current="page" href="#">Employees Details</a>
+            <a class="nav-link active u-color" aria-current="page" href="#">Employee </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active u-color" aria-current="page" href="#">Customer Details</a>
+            <a class="nav-link active u-color" aria-current="page" href="#">Agent </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active u-color" aria-current="page" href="#">Agent Details</a>
+            <a class="nav-link active u-color" aria-current="page" href="#">Customer </a>
           </li>
         </ul>
-          <button class="btn btn-outline-light" type="submit">Login</button>
+          <button class="btn btn-outline-light" type="submit">Logout</button>
       
       </div>
     </div>
