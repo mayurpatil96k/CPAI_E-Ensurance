@@ -23,7 +23,7 @@ export default {
 <template>
   <nav class="navbar pr-md-5 navbar-expand-lg navbar-light" style="background-color: #13344b;">
     <div class="container-fluid">
-      <a class="navbar-brand u-color" href="#">E Insurance</a>
+      <a class="navbar-brand u-color" href="#">EInsurance</a>
       <button
         class="navbar-toggler"
         type="button"
