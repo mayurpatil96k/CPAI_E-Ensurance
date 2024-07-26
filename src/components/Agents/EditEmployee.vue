@@ -6,8 +6,6 @@
         <div>
           <label for="name">Name:</label>
           <input type="text" v-model="localCustomer.name" id="name" />
-          
-
         </div>
         <div>
           <label for="email">Email:</label>
@@ -29,7 +27,6 @@
 </template>
 <script lang="ts">
 import { defineComponent, toRefs, reactive, watch } from 'vue'
-
 export default defineComponent({
   props: {
     customer: {

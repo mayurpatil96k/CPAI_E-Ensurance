@@ -244,6 +244,9 @@ export default {
                   <td>
                     <ul class="action-list">
                       <li>
+                        <a href="#" @click.prevent="viewcustomerdetails" data-tip="view"><i class="fa fa-eye"></i></a>
+                      </li>
+                      <li>
                         <a href="#" @click.prevent="confirmDelete(customer)" data-tip="delete"><i class="fa fa-trash"></i></a>
                       </li>
                     </ul>
