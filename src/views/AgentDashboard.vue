@@ -1,6 +1,6 @@
 <script lang="ts">
 import { computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { RouterView, useRoute } from 'vue-router';
 import router from '@/router';
 
 export default {
@@ -19,9 +19,8 @@ export default {
   }
 };
 </script>
-
 <template>
-  <nav class="navbar pr-md-5 navbar-expand-lg navbar-light" style="background-color: #13344b;">
+     <nav class="navbar pr-md-5 navbar-expand-lg navbar-light" style="background-color: #13344b;">
     <div class="container-fluid">
       <a class="navbar-brand u-color" href="#">EInsurance</a>
       <button
@@ -38,34 +37,29 @@ export default {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active u-color" aria-current="page" href="#">Employees Details</a>
+            <router-link class="mr-md-3" :class="{'u-color': true, 'active-link': isActive('/agent/plan')}" to="/agent/plan">Plan</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link active u-color" aria-current="page" href="#">Customer Details</a>
+            <router-link class="mr-md-3" :class="{'u-color': true, 'active-link': isActive('/agent/customer')}" to="/agent/customer">Customer</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link active u-color" aria-current="page" href="#">Agent Details</a>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-light" type="submit">Search</button>
-        </form>
-            <router-link class="mr-md-3" :class="{'u-color': true, 'active-link': isActive('/admin/employee')}" to="/admin/employee">Employee</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="mr-md-3" :class="{'u-color': true, 'active-link': isActive('/admin/agent')}" to="/admin/agent">Agent</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="mr-md-3" :class="{'u-color': true, 'active-link': isActive('/admin/customer')}" to="/admin/customer">Customer</router-link>
+            <router-link class="mr-md-3" :class="{'u-color': true, 'active-link': isActive('/agent/customer')}" to="/agent/customer">Comission</router-link>
           </li>
         </ul>
         <button class="btn btn-outline-light" type="submit" @click="logoutfun">Logout</button>
       </div>
     </div>
   </nav>
-</template>
 
+
+<RouterView/>
+
+    <footer class="text-light py-2 " style="background-color: #13344b;">
+      <div class="container text-center">
+        <p class="">&copy; 2024 CPAI_E_INSURANCE. All rights reserved.</p>
+      </div>
+    </footer>
+  </template>
 
 <style scoped>
 .u-color {
@@ -80,4 +74,3 @@ export default {
   font-weight: bold; 
 }
 </style>
-

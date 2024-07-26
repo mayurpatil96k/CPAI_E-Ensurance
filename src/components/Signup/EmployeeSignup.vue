@@ -1,90 +1,96 @@
+<script setup lang="ts">
+import router from '@/router';
 
-<script>
-import { ref } from 'vue'
-import { useVueform, Vueform } from '@vueform/vueform'
+interface ReqData {
+  email: string
+  username: string
+  fullName: string
+  password: string
+}
+const emit = defineEmits(['submitSuccess'])
 
-export default {
-  mixins: [Vueform],
-  setup(props, context)
-  {
-    const form = useVueform(props, context)
 
-    const vueform = ref({
-      size: 'md',
-      displayErrors: false,
-      addClass: 'vf-create-account',
-      schema: {
-        // page_title: {
-        //   type: 'static',
-        //   tag: 'h1',
-        //   align: 'center',
-        //   content: 'Create Employee Account',
-        // },
-        UserName: {
-          type: 'text',
-          label: 'Username',
-          rules: [
-            'required',
-            'unique',
-            'min:8',
-          ],
-        },
-        email: {
-          type: 'text',
-          inputType: 'email',
-          rules: [
-            'nullable',
-            'required',
-            'email',
-          ],
-          label: 'Email',
-        },
-        fullname: {
-          type: 'text',
-          label: 'FullName',
-          rules: [
-            'required',
-          ],
-        },
-        password: {
-          type: 'text',
-          inputType: 'password',
-          label: 'Password',
-          rules: [
-            'required',
-            'min:8',
-          ],
-        },
-        password_confirmation: {
-          type: 'text',
-          inputType: 'password',
-          label: 'Confirm Password',
-          rules: [
-            'required',
-            'min:8',
-            'same:password',
-          ],
-        },
-        register: {
-          type: 'button',
-          submits: true,
-          buttonLabel: 'Create account',
-          full: true,
-          size: 'lg',
-          danger: true,
-        },
-      },
-    })
-
-    return {
-      ...form,
-      vueform,
-    }
-  }
+const handleSubmit = async (formRef: { requestData: ReqData }, formData: ReqData) => {
+  console.log(formRef.requestData)
+  // document.getElementById("mainform").reset() 
+  emit('submitSuccess')
 }
 </script>
+<template>
+  <Vueform
+  id="mainform"
+  :endpoint="false" @submit="handleSubmit"
+    size="md"
+    :display-errors="false"
+    add-class="vf-create-account"
+  >
+    <!-- <StaticElement
+      name="register_title"
+      tag="h2"
+      content="Create Account  for  Insurance Agent"
+      size="md"
+      bottom="1"
+      top="1"
+      align="center"
+    /> -->
+    <TextElement
+      id="mainform"
+      name="fullname"
+      label="Full Name"
+      :rules="[
+        'required',
+      ]"
+    />
+    <TextElement
+      name="username"
+      label="User Name"
+      :rules="[
+        'required',
+      ]"
+    />
+    <TextElement
+      name="email"
+      input-type="email"
+      :rules="[
+        'required',
+        'max:255',
+        'email',
+      ]"
+      field-name="Email"
+      label="Email"
+    />
+    <TextElement
+      name="password"
+      input-type="password"
+      :rules="[
+        'required',
+        'min:8',
+      ]"
+      field-name="Password"
+      label="Password"
+    />
+    <TextElement
+      name="password_confirmation"
+      input-type="password"
+      :rules="[
+        'required',
+        'same:password',
+      ]"
+      field-name="Password confirmation"
+      label="Confirm Password"
+      :submit="false"
+    />
+    <ButtonElement
+      name="register"
+      :submits="true"
+      button-label="Create account"
+      :full="true"
+      size="lg"
+    />
+  </Vueform>
+</template>
 
-<style>
+<style scoped>
 .vf-create-account *,
 .vf-create-account *:before,
 .vf-create-account *:after,

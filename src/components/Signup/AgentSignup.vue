@@ -1,5 +1,24 @@
+<script setup lang="ts">
+import router from '@/router';
+
+interface ReqData {
+  email: string
+  username: string
+  fullName: string
+  password: string
+}
+const emit = defineEmits(['submitSuccess'])
+
+
+const handleSubmit = async (formRef: { requestData: ReqData }, formData: ReqData) => {
+
+  // console.log(formData)
+  console.log(formRef.requestData)
+}
+</script>
 <template>
   <Vueform
+  :endpoint="false" @submit="handleSubmit"
     size="md"
     :display-errors="false"
     add-class="vf-create-account"
@@ -57,6 +76,7 @@
       ]"
       field-name="Password confirmation"
       label="Confirm Password"
+      :submit="false"
     />
     <ButtonElement
       name="register"
@@ -64,12 +84,11 @@
       button-label="Create account"
       :full="true"
       size="lg"
-      :danger="true"
     />
   </Vueform>
 </template>
 
-<style>
+<style scoped>
 .vf-create-account *,
 .vf-create-account *:before,
 .vf-create-account *:after,

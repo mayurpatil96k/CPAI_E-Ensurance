@@ -22,7 +22,7 @@
     </div>
   </template>
   
-  <style>
+  <style scoped>
     .text-justify {
       text-align: justify;
     }
@@ -34,7 +34,7 @@
       text-overflow: ellipsis;
     }
     .hover-shadow:hover {
-      box-shadow: 0 4px 8px 0 rgba(220, 53, 69, 0.5), 0 6px 20px 0 rgba(220, 53, 69, 0.5);
+      box-shadow: 0 4px 8px 0 rgb(8, 85, 127), 0 6px 20px 0 rgb(8, 85, 127);
     }
   </style>
   

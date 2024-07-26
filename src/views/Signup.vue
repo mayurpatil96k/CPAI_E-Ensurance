@@ -1,54 +1,26 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import AdminSignup from '@/components/Signup/AdminSignup.vue';
+import router from '@/router';
 
-const router = useRouter()
-const route = useRoute()
-
-const activeButton = ref('')
-
-const navigateTo = (routeName: string) => {
-  activeButton.value = routeName
-  router.push({ name: routeName })
-}
-
-watch(() => route.name, (newRoute) => {
-  if (typeof newRoute === 'string') {
-    activeButton.value = newRoute
-  }
-}, { immediate: true }) 
+const SubmitEvent = (data: any) => {
+  console.log('Data from child:', data);
+  setTimeout(()=>{
+    router.push('/Login/adminLogin')
+  },5000)
+  
+};
 </script>
 
 <template>
   <div class="container u-height d-flex align-items-center justify-content-center">
     <div class="card">
       <div class="card-body border border-danger border-5 rounded-3">
-        <div class="d-flex justify-content-center mb-3 text-center">
-          <h3><strong>Create Account For</strong></h3>
-        </div>
-        <div class="d-flex flex-column flex-md-row justify-content-around mb-3">
-          <span 
-            @click="navigateTo('AdminSignup')" 
-            :class="['text-link', activeButton === 'AdminSignup' ? 'active' : '']"
-          >Admin</span>
-          <span 
-            @click="navigateTo('AgentSignup')" 
-            :class="['text-link', activeButton === 'AgentSignup' ? 'active' : '']"
-          >Agent</span>
-          <span 
-            @click="navigateTo('CustomerSignup')" 
-            :class="['text-link', activeButton === 'CustomerSignup' ? 'active' : '']"
-          >Customer</span>
-          <span 
-            @click="navigateTo('EmployeeSignup')" 
-            :class="['text-link', activeButton === 'EmployeeSignup' ? 'active' : '']"
-          >Employee</span>
-        </div>
-        <RouterView />
+        <AdminSignup @submit-success="SubmitEvent"/>
       </div>
     </div>
   </div>
+  
 </template>
 
 

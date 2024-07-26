@@ -9,4 +9,5 @@ export default defineConfig({
   theme: bootstrap,
   locales: { en },
   locale: 'en',
+  
 })

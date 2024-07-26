@@ -6,8 +6,17 @@ import AdminSignup from '../components/Signup/AdminSignup.vue'
 import EmployeeSignup from '../components/Signup/EmployeeSignup.vue'
 import Login from '../views/Login.vue'
 import AdminLogin from '@/components/Login/AdminLogin.vue'
-import MyPolicy from '@/components/Policies/MyPolicy.vue'
-
+import CustomerPolicies from '../components/Agents/CustomerPolicies.vue'
+import MyPolicy from '../components/Policies/MyPolicy.vue'
+import EmployeeLogin from '@/components/Login/EmployeeLogin.vue'
+import AdminDashboard from '@/views/AdminDashboard.vue'
+import Employee from '@/components/Agents/Employee.vue'
+import Agent from '@/components/Agents/Agent.vue'
+import EmployeeDashboard from '@/views/EmployeeDashboard.vue'
+import Scheme from '@/components/Employee/Scheme.vue'
+import Plan from '@/components/Employee/Plan.vue'
+import AgentDashboard from '@/views/AgentDashboard.vue'
+import Customer from '@/components/AgentDashboard/Customer.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -48,14 +57,82 @@ const router = createRouter({
           name: 'adminLogin',
           component: AdminLogin,
         },
+        {
+          path: '/Login/EmployeeLogin',
+          name: 'EmployeeLogin',
+          component: EmployeeLogin,
+        },
         
       ]
     },
     {
-      // temp routing...
-      path:'/Mypolicy',
-      name:'mypolicy',
-      component:MyPolicy,
+      path:'/admin',
+      name:'AgentDashboard',
+      component:AdminDashboard,
+      children:[{
+        path: '/admin/customer',
+          name: 'CustomerPolicies',
+          component: CustomerPolicies,
+      },
+      {
+        path: '/admin/employee',
+          name: 'Employee',
+          component: Employee,
+      },
+      {
+        path: '/admin/Agent',
+          name: 'Agent',
+          component: Agent,
+      },
+    ]
+    },
+    {
+      path:'/Employee',
+      name:'EmployeeDashboard',
+      component:EmployeeDashboard,
+      children:[
+        {
+          path: '/Employee/scheme',
+          name: 'scheme',
+          component: Scheme,
+        },
+        {
+          path: '/Employee/plan',
+          name: 'plan',
+          component: Plan,
+        }
+      ]
+    },
+    {
+      path:'/agent',
+      name:'agent',
+      component:AgentDashboard,
+      children:[
+        {
+          path:'/Agent/plan',
+          name:'agentplans',
+          component:MyPolicy
+        },
+        {
+          path:'/Agent/customer',
+          name:'agentcustomer',
+          component:Customer
+        },
+        {
+          path:'/Agent/customer/:name',
+          component:CustomerDetails,
+          props:(route) => ({ customerName: route.params.name })
+        }
+      ]
+    },
+    
+    {
+      path:'/customer',
+      name:'customerdashboard',
+      component:CustomerDashboard,
+      children:[
+
+      ]
     }
   ]
 })
