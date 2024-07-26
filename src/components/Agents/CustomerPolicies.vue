@@ -171,8 +171,8 @@ export default {
     reloadPage() {
       window.location.reload()
     },
-    confirmDelete() {
-      if (window.confirm('Are you sure you want to delete this Customer?' )) {
+    confirmDelete(customer:any) {
+      if (window.confirm('Are you sure you want to delete this Customer '+customer.name+'?')) {
         this.deleteItem();
       }
     },
@@ -244,7 +244,7 @@ export default {
                   <td>
                     <ul class="action-list">
                       <li>
-                        <a href="#" @click.prevent="confirmDelete" data-tip="delete"><i class="fa fa-trash"></i></a>
+                        <a href="#" @click.prevent="confirmDelete(customer)" data-tip="delete"><i class="fa fa-trash"></i></a>
                       </li>
                     </ul>
                   </td>

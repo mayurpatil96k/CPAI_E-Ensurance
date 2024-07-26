@@ -2,15 +2,19 @@
 import Header from '../Header.vue'
 import Footer from '../Footer.vue'
 import CreateEmployee from './CreateEmployee.vue';
+import EditEmployee from './EditEmployee.vue';
 
 export default {
   components: {
     Header,
     Footer,
-    CreateEmployee
+    CreateEmployee,
+    EditEmployee
   },
   data() {
     return {
+      isEditDialogOpen: false,
+      selectedEmployee: {},
       customers: [
         {
           name: 'Anant Ambani',
@@ -187,8 +191,24 @@ export default {
     reloadPage() {
       window.location.reload()
     },
+    confirmDelete(employee:any) {
+      if (window.confirm('Are you sure you want to delete this Employee '+employee.name+'?')) {
+        this.deleteItem();
+      }
+    },
+    deleteItem() {
+      // Logic to delete the item
+      console.log('Item deleted');
+    },
     changePage(pageNumber: number) {
       this.currentPage = pageNumber
+    },
+    openEditForm(customer:any) {
+      this.selectedEmployee = customer;
+      this.isEditDialogOpen = true;
+    },
+    closeEditForm() {
+      this.isEditDialogOpen = false;
     }
   }
 }
@@ -237,12 +257,13 @@ export default {
                   <td>
                     <ul class="action-list">
                       <li>
-                        <a href="#" data-tip="edit"><i class="fa fa-edit"></i></a>
+                        <a href="#"  @click.prevent="openEditForm(customer)" data-tip="edit"><i class="fa fa-edit"></i></a>
                       </li>
                       <li>
-                        <a href="#" data-tip="delete"><i class="fa fa-trash"></i></a>
+                        <a href="#" @click.prevent="confirmDelete(customer)" data-tip="delete"><i class="fa fa-trash"></i></a>
                       </li>
                     </ul>
+                    <EditEmployee :customer="customer" :isDialogOpen="isEditDialogOpen" @closeDialog="closeEditForm"/>
                   </td>
                 </tr>
               </tbody>
@@ -277,6 +298,7 @@ export default {
       </div>
     </div>
    <CreateEmployee/>
+   <EditEmployee :customer="selectedEmployee" :isDialogOpen="isEditDialogOpen" @closeDialog="closeEditForm"/>
   </div>
 </template>
 
