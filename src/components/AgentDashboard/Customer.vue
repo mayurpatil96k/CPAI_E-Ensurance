@@ -1,13 +1,10 @@
 <script lang="ts">
 import Header from '../Header.vue'
 import Footer from '../Footer.vue'
-import CreateAgent from './CreateAgent.vue';
-
 export default {
   components: {
     Header,
-    Footer,
-    CreateAgent
+    Footer
   },
   data() {
     return {
@@ -16,60 +13,135 @@ export default {
           name: 'Anant Ambani',
           email: 'anant@example.com',
           phone: '123-456-7890',
-          username: '1995-04-10'
-        },
-        {
-          name: 'Elon Musk',
-          email: 'elon@example.com',
-          phone: '987-654-3210',
-          username: '1995-04-10'
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
         },
         {
           name: 'Anant Ambani',
           email: 'anant@example.com',
           phone: '123-456-7890',
-          username: '1995-04-10'
-        },
-        {
-          name: 'Elon Musk',
-          email: 'elon@example.com',
-          phone: '987-654-3210',
-          username: '1995-04-10'
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
         },
         {
           name: 'Anant Ambani',
           email: 'anant@example.com',
           phone: '123-456-7890',
-          username: '1995-04-10'
-        },
-        {
-          name: 'Elon Musk',
-          email: 'elon@example.com',
-          phone: '987-654-3210',
-          username: '1995-04-10'
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
         },
         {
           name: 'Anant Ambani',
           email: 'anant@example.com',
           phone: '123-456-7890',
-          username: '1995-04-10'
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
+        },
+        {
+          name: 'Anant Ambani',
+          email: 'anant@example.com',
+          phone: '123-456-7890',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/AnantAmbani.avif'
         },
         {
           name: 'Elon Musk',
           email: 'elon@example.com',
           phone: '987-654-3210',
-          username: '1995-04-10'
-        },{
-          name: 'Anant Ambani',
-          email: 'anant@example.com',
-          phone: '123-456-7890',
-          username: '1995-04-10'
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/ElonMusk.jpeg'
         },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A001',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A005',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A006',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A006',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A006',
+          image: 'public/ElonMusk.jpeg'
+        },
+        {
+          name: 'Elon Musk',
+          email: 'elon@example.com',
+          phone: '987-654-3210',
+          dob: '1995-04-10',
+          agentId: 'A006',
+          image: 'public/ElonMusk.jpeg'
+        },
+
       ],
-      totalCustomers: 25,
       searchQuery: '',
       currentPage: 1,
-      itemsPerPage: 10
+      itemsPerPage: 6
     }
   },
   computed: {
@@ -82,29 +154,30 @@ export default {
         (customer) =>
           customer.name.toLowerCase().includes(lowercasedQuery) ||
           customer.email.toLowerCase().includes(lowercasedQuery) ||
-          customer.phone.includes(lowercasedQuery)
-      )
+          customer.phone.includes(lowercasedQuery) ||
+          customer.agentId.toLowerCase().includes(lowercasedQuery)
+      ) 
     },
     paginatedCustomers() {
-      const start = (this.currentPage - 1) * this.itemsPerPage
-      const end = start + this.itemsPerPage
-      return this.filteredCustomers.slice(start, end)
+      const start = (this.currentPage - 1) * this.itemsPerPage;
+      const end = start + this.itemsPerPage;
+      return this.filteredCustomers.slice(start, end);
     },
     totalPages() {
-      return Math.ceil(this.filteredCustomers.length / this.itemsPerPage)
+      return Math.ceil(this.filteredCustomers.length / this.itemsPerPage);
     }
   },
   methods: {
     reloadPage() {
       window.location.reload()
     },
-    changePage(pageNumber: number) {
-      this.currentPage = pageNumber
+    
+    changePage(page: number) {
+      this.currentPage = page;
     }
   }
 }
 </script>
-
 <template>
   <div class="container1">
     <div class="justify-content-center cont1">
@@ -113,7 +186,7 @@ export default {
           <div class="panel-heading">
             <div class="row">
               <div class="col col-sm-3 col-xs-12">
-                <h4 class="title">Agent<span></span></h4>
+                <h4 class="title">Customer <span></span></h4>
               </div>
               <div class="col-sm-9 col-xs-12 text-right">
                 <div class="btn_group">
@@ -123,7 +196,6 @@ export default {
                     placeholder="Search"
                     v-model="searchQuery"
                   />
-                  <button class="btn btn-default" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Add New Employee">Add</button>
                 </div>
               </div>
             </div>
@@ -133,25 +205,34 @@ export default {
               <thead>
                 <tr>
                   <th>ID</th>
+                  <th>Image</th>
                   <th>Full Name</th>
                   <th>Email</th>
-                  <th>Username</th>
+                  <th>Phone</th>
+                  <th>Date of birth</th>
+                 
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="(customer, index) in paginatedCustomers" :key="index">
-                  <td>{{ index + 1 + (currentPage - 1) * itemsPerPage }}</td>
+                  <td>{{ (currentPage - 1) * itemsPerPage + index + 1 }}</td>
+                  <td>
+                    <img
+                      src="/public/AnantAmbani.avif"
+                      alt="Customer Image"
+                      class="img-thumbnail customer-icon2"
+                    />
+                  </td>
+
                   <td>{{ customer.name }}</td>
                   <td>{{ customer.email }}</td>
-                  <td>{{ customer.username }}</td>
+                  <td>{{ customer.phone }}</td>
+                  <td>{{ customer.dob }}</td>
                   <td>
                     <ul class="action-list">
                       <li>
-                        <a href="#" data-tip="edit"><i class="fa fa-edit"></i></a>
-                      </li>
-                      <li>
-                        <a href="#" data-tip="delete"><i class="fa fa-trash"></i></a>
+                        <a href="#" data-tip="view"><i class="fa fa-eye"></i></a>
                       </li>
                     </ul>
                   </td>
@@ -167,18 +248,14 @@ export default {
               </div>
               <div class="col-sm-6 col-xs-6">
                 <ul class="pagination hidden-xs pull-right">
-                  <li v-if="currentPage > 1" @click="changePage(currentPage - 1)">
-                    <a href="#"> < </a>
+                  <li :class="{ disabled: currentPage === 1 }">
+                    <a href="#" @click.prevent="changePage(currentPage - 1)">«</a>
                   </li>
-                  <li
-                    v-for="page in totalPages"
-                    :class="{ active: page === currentPage }"
-                    @click="changePage(page)"
-                  >
-                    <a href="#">{{ page }}</a>
+                  <li v-for="page in totalPages" :key="page" :class="{ active: currentPage === page }">
+                    <a href="#" @click.prevent="changePage(page)">{{ page }}</a>
                   </li>
-                  <li v-if="currentPage < totalPages" @click="changePage(currentPage + 1)">
-                    <a href="#"> > </a>
+                  <li :class="{ disabled: currentPage === totalPages }">
+                    <a href="#" @click.prevent="changePage(currentPage + 1)">»</a>
                   </li>
                 </ul>
               </div>
@@ -187,12 +264,11 @@ export default {
         </div>
       </div>
     </div>
-   <CreateAgent/>
   </div>
 </template>
 
 <style scoped>
-.customer-icon {
+.customer-icon2 {
   width: 50px;
   height: 50px;
   object-fit: cover;
@@ -282,8 +358,8 @@ export default {
   border: none;
 }
 .panel .panel-body .table tbody tr td {
-  color: #fff;
   text-align: center;
+  color: #fff;
   font-size: 15px;
   padding: 10px 12px;
   vertical-align: middle;
