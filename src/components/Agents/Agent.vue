@@ -187,6 +187,15 @@ export default {
     reloadPage() {
       window.location.reload()
     },
+    confirmDelete(agent:any) {
+      if (window.confirm('Are you sure you want to delete this Agent '+agent.name+'?')) {
+        this.deleteItem();
+      }
+    },
+    deleteItem() {
+      // Logic to delete the item
+      console.log('Item deleted');
+    },
     changePage(pageNumber: number) {
       this.currentPage = pageNumber
     }
@@ -240,7 +249,7 @@ export default {
                         <a href="#" data-tip="edit"><i class="fa fa-edit"></i></a>
                       </li>
                       <li>
-                        <a href="#" data-tip="delete"><i class="fa fa-trash"></i></a>
+                        <a href="#" @click.prevent="confirmDelete(customer)" data-tip="delete"><i class="fa fa-trash"></i></a>
                       </li>
                     </ul>
                   </td>
