@@ -52,6 +52,7 @@
       }
       const submitForm = () => {
         // Logic to save the edited employee details
+        //Just solving the conflict for merging code,
         console.log('Employee details saved', localCustomer)
         closeDialog()
       }
