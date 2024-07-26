@@ -85,6 +85,11 @@ const router = createRouter({
           name: 'Agent',
           component: Agent,
       },
+      {
+        path:'/admin/customer/:name',
+        component:CustomerDetails,
+        props:(route) => ({ customerName: route.params.name })
+      }
     ]
     },
     {

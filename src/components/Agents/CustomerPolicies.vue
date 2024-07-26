@@ -185,7 +185,7 @@ export default {
       this.currentPage = page;
     },
     viewCustomerDetails(customer: { name: string}) {
-      this.$router.push({ path: `/Agent/customer/${encodeURIComponent(customer.name)}` });
+      this.$router.push({ path: `/admin/customer/${encodeURIComponent(customer.name)}` });
     },
   }
 }
