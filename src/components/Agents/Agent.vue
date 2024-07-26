@@ -3,7 +3,6 @@ import Header from '../Header.vue'
 import Footer from '../Footer.vue'
 import CreateAgent from './CreateAgent.vue';
 import EditAgent from './EditAgent.vue';
-
 export default {
   components: {
     Header,
@@ -13,6 +12,8 @@ export default {
   },
   data() {
     return {
+      isEditDialogOpen: false,
+      selectedEmployee: {},
       customers: [
         {
           name: 'Anant Ambani',
@@ -121,6 +122,13 @@ export default {
     },
     changePage(pageNumber: number) {
       this.currentPage = pageNumber
+    },
+    openEditForm(customer:any) {
+      this.selectedEmployee = customer;
+      this.isEditDialogOpen = true;
+    },
+    closeEditForm() {
+      this.isEditDialogOpen = false;
     }
   }
 }
@@ -169,7 +177,7 @@ export default {
                   <td>
                     <ul class="action-list">
                       <li>
-                        <a href="#" data-tip="edit"><i class="fa fa-edit"></i></a>
+                        <a href="#" @click.prevent="openEditForm(customer)" data-tip="edit"><i class="fa fa-edit"></i></a>
                       </li>
                       <li>
                         <a href="#" @click.prevent="confirmDelete(customer)" data-tip="delete"><i class="fa fa-trash"></i></a>
@@ -209,7 +217,6 @@ export default {
       </div>
     </div>
    <CreateAgent/>
-   <EditAgent :customer="selectedEmployee" :isDialogOpen="isEditDialogOpen" @closeDialog="closeEditForm"/>
   </div>
 </template>
 

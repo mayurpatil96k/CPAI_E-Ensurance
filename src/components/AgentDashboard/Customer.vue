@@ -1,10 +1,13 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script lang="ts">
 import Header from '../Header.vue'
 import Footer from '../Footer.vue'
+
+
 export default {
   components: {
     Header,
-    Footer
+    Footer,
   },
   data() {
     return {
@@ -141,7 +144,8 @@ export default {
       ],
       searchQuery: '',
       currentPage: 1,
-      itemsPerPage: 6
+      itemsPerPage:6,
+      
     }
   },
   computed: {
@@ -174,7 +178,10 @@ export default {
     
     changePage(page: number) {
       this.currentPage = page;
-    }
+    },
+    viewCustomerDetails(customer: { name: string}) {
+      this.$router.push({ path: `/Agent/customer/${encodeURIComponent(customer.name)}` });
+    },
   }
 }
 </script>
@@ -232,7 +239,7 @@ export default {
                   <td>
                     <ul class="action-list">
                       <li>
-                        <a href="#" data-tip="view"><i class="fa fa-eye"></i></a>
+                        <a href="#" @click.prevent="viewCustomerDetails(customer)" data-tip="view"><i class="fa fa-eye"></i></a>
                       </li>
                     </ul>
                   </td>
