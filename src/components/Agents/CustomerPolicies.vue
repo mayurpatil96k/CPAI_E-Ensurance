@@ -183,7 +183,7 @@ export default {
       
       console.log('Item deleted');
     },
-    changePage(page: number) {
+    changePage(page:number) {
       this.currentPage = page;
     },
     viewCustomerDetails(customer: { name: string}) {
