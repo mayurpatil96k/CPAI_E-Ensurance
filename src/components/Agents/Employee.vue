@@ -263,7 +263,7 @@ export default {
                         <a href="#" @click.prevent="confirmDelete(customer)" data-tip="delete"><i class="fa fa-trash"></i></a>
                       </li>
                     </ul>
-                    <EditEmployee :customer="customer" :isDialogOpen="isEditDialogOpen" @closeDialog="closeEditForm"/>
+                    <!-- <EditEmployee :customer="customer" :isDialogOpen="isEditDialogOpen" @closeDialog="closeEditForm"/> -->
                   </td>
                 </tr>
               </tbody>

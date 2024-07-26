@@ -180,7 +180,7 @@ export default {
       // Logic to delete the item
       console.log('Item deleted');
     },
-    changePage(page) {
+    changePage(page: number) {
       this.currentPage = page;
     }
   }
