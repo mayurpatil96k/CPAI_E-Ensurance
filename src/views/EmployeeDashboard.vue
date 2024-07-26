@@ -37,17 +37,17 @@ export default {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link class="mr-md-3" :class="{'u-color': true, 'active-link': isActive('/employee/scheme')}" to="/employee/scheme">Sceme</router-link>
+            <router-link class="mr-md-3" :class="{'u-color': true, 'active-link': isActive('/employee/scheme')}" to="/employee/scheme">Scheme</router-link>
           </li>
           <li class="nav-item">
             <router-link class="mr-md-3" :class="{'u-color': true, 'active-link': isActive('/employee/plan')}" to="/employee/plan">Plan</router-link>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link class="mr-md-3" :class="{'u-color': true, 'active-link': isActive('/employee/agent')}" to="/employee/agent">Agent</router-link>
           </li>
           <li class="nav-item">
             <router-link class="mr-md-3" :class="{'u-color': true, 'active-link': isActive('/employee/customer')}" to="/employee/customer">Customer</router-link>
-          </li>
+          </li> -->
         </ul>
         <button class="btn btn-outline-light" type="submit" @click="logoutfun">Logout</button>
       </div>

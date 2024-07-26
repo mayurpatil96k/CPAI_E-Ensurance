@@ -14,6 +14,7 @@ import Employee from '@/components/Agents/Employee.vue'
 import Agent from '@/components/Agents/Agent.vue'
 import EmployeeDashboard from '@/views/EmployeeDashboard.vue'
 import Scheme from '@/components/Employee/Scheme.vue'
+import Plan from '@/components/Employee/Plan.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -98,6 +99,11 @@ const router = createRouter({
           path: '/Employee/scheme',
           name: 'scheme',
           component: Scheme,
+        },
+        {
+          path: '/Employee/plan',
+          name: 'plan',
+          component: Plan,
         }
       ]
     },

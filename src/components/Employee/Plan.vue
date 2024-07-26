@@ -10,82 +10,56 @@ export default {
   data() {
     return {
       plans: [
-        { planId: '1', planName: 'Plan A' },
-        { planId: '2', planName: 'Plan B' },
-        // Add more plan objects as needed
-      ],
-      schemes: [
         {
-          schemeId: '1',
-          schemeName: 'Scheme 1',
+          planId: '1',
           planName: 'Plan A',
-          price: '$100',
+          planDescription: 'Description for Plan A',
           createdAt: '2024-01-01',
-          coverTenure: '1 year',
-          description: 'Description for Scheme 1',
-          amount: '$1000'
         },
         {
-          schemeId: '2',
-          schemeName: 'Scheme 2',
+          planId: '2',
           planName: 'Plan B',
-          price: '$200',
+          planDescription: 'Description for Plan B',
           createdAt: '2024-01-02',
-          coverTenure: '2 years',
-          description: 'Description for Scheme 2',
-          amount: '$2000'
         },
-        // Add more scheme objects as needed
+        // Add more plan objects as needed
       ],
       searchQuery: '',
       currentPage: 1,
       itemsPerPage: 10,
-      selectedPlanId: '', // For storing the selected plan ID
-      newScheme: {
-        schemeId: '',
-        schemeName: '',
+      newPlan: {
+        planId: '',
         planName: '',
-        price: '',
-        createdAt: '',
-        coverTenure: '',
-        description: '',
-        amount: ''
+        planDescription: '',
+        createdAt: ''
       },
-      editedScheme: {
-        schemeId: '',
-        schemeName: '',
+      editedPlan: {
+        planId: '',
         planName: '',
-        price: '',
-        createdAt: '',
-        coverTenure: '',
-        description: '',
-        amount: ''
+        planDescription: '',
+        createdAt: ''
       }
     }
   },
   computed: {
-    filteredSchemes() {
-      let schemes = this.schemes
-      if (this.selectedPlanId) {
-        schemes = schemes.filter(scheme => scheme.planName === this.plans.find(plan => plan.planId === this.selectedPlanId)?.planName)
+    filteredPlans() {
+      if (!this.searchQuery) {
+        return this.plans
       }
-      if (this.searchQuery) {
-        const lowercasedQuery = this.searchQuery.toLowerCase()
-        schemes = schemes.filter(
-          (scheme) =>
-            scheme.schemeName.toLowerCase().includes(lowercasedQuery) ||
-            scheme.planName.toLowerCase().includes(lowercasedQuery)
-        )
-      }
-      return schemes
+      const lowercasedQuery = this.searchQuery.toLowerCase()
+      return this.plans.filter(
+        (plan) =>
+          plan.planName.toLowerCase().includes(lowercasedQuery) ||
+          plan.planDescription.toLowerCase().includes(lowercasedQuery)
+      )
     },
-    paginatedSchemes() {
+    paginatedPlans() {
       const start = (this.currentPage - 1) * this.itemsPerPage
       const end = start + this.itemsPerPage
-      return this.filteredSchemes.slice(start, end)
+      return this.filteredPlans.slice(start, end)
     },
     totalPages() {
-      return Math.ceil(this.filteredSchemes.length / this.itemsPerPage)
+      return Math.ceil(this.filteredPlans.length / this.itemsPerPage)
     }
   },
   methods: {
@@ -95,46 +69,38 @@ export default {
     changePage(pageNumber: number) {
       this.currentPage = pageNumber
     },
-    addScheme() {
-      // this.schemes.push({ ...this.newScheme, createdAt: new Date().toISOString().split('T')[0] })
-      console.log(this.newScheme)
+    addPlan() {
+      // this.plans.push({ ...this.newPlan, createdAt: new Date().toISOString().split('T')[0] })
+      console.log(this.newPlan)
       this.resetForm()
     },
     resetForm() {
-      this.newScheme = {
-        schemeId: '',
-        schemeName: '',
+      this.newPlan = {
+        planId: '',
         planName: '',
-        price: '',
-        createdAt: '',
-        coverTenure: '',
-        description: '',
-        amount: ''
+        planDescription: '',
+        createdAt: ''
       }
     },
-    editScheme(scheme: { schemeId: string; schemeName: string; planName: string; price: string; createdAt: string; coverTenure: string; description: string; amount: string; }) {
-      this.editedScheme = { ...scheme }
+    editPlan(plan: { planId: string; planName: string; planDescription: string; createdAt: string }) {
+      this.editedPlan = { ...plan }
     },
-    updateScheme() {
-      const index = this.schemes.findIndex(scheme => scheme.schemeId === this.editedScheme.schemeId)
+    updatePlan() {
+      const index = this.plans.findIndex(plan => plan.planId === this.editedPlan.planId)
       if (index !== -1) {
-        // this.schemes.splice(index, 1, { ...this.editedScheme })
-        console.log(this.editedScheme);
+        // this.plans.splice(index, 1, { ...this.editedPlan })
+        console.log(this.editedPlan);
         
       }
-      this.editedScheme = {
-        schemeId: '',
-        schemeName: '',
+      this.editedPlan = {
+        planId: '',
         planName: '',
-        price: '',
-        createdAt: '',
-        coverTenure: '',
-        description: '',
-        amount: ''
+        planDescription: '',
+        createdAt: ''
       }
     },
-    deleteScheme(schemeId: string) {
-      this.schemes = this.schemes.filter(scheme => scheme.schemeId !== schemeId)
+    deletePlan(planId: string) {
+      this.plans = this.plans.filter(plan => plan.planId !== planId)
     }
   }
 }
@@ -148,16 +114,9 @@ export default {
           <div class="panel-heading">
             <div class="row">
               <div class="col col-sm-3 col-xs-12">
-                <h4 class="title">Schemes<span></span></h4>
+                <h4 class="title">Plans<span></span></h4>
               </div>
-              
               <div class="col-sm-9 col-xs-12 text-right">
-                <!-- <div class=" d-flex  justify-content-end">
-                  <select class="w-25 mt-2 form-select form-select-sm mb-3" aria-label=".form-select-sm example"  v-model="selectedPlanId">
-                    <option value="">All Plans</option>
-                    <option v-for="plan in plans" :key="plan.planId" :value="plan.planId">{{ plan.planName }}</option>
-                  </select>
-                </div> -->
                 <div class="btn_group">
                   <input
                     type="text"
@@ -165,9 +124,8 @@ export default {
                     placeholder="Search"
                     v-model="searchQuery"
                   />
-                  <button class="btn btn-default" data-bs-toggle="modal" data-bs-target="#addSchemeModal" title="Add New Scheme">Add</button>
+                  <button class="btn btn-default" data-bs-toggle="modal" data-bs-target="#addPlanModal" title="Add New Plan">Add</button>
                 </div>
-                
               </div>
             </div>
           </div>
@@ -175,34 +133,26 @@ export default {
             <table class="table">
               <thead>
                 <tr>
-                  <th>Scheme ID</th>
-                  <th>Scheme Name</th>
+                  <th>Plan ID</th>
                   <th>Plan Name</th>
-                  <th>Price</th>
+                  <th>Plan Description</th>
                   <th>Created At</th>
-                  <th>Cover Tenure</th>
-                  <th>Description</th>
-                  <th>Amount</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(scheme, index) in paginatedSchemes" :key="index">
-                  <td>{{ scheme.schemeId }}</td>
-                  <td>{{ scheme.schemeName }}</td>
-                  <td>{{ scheme.planName }}</td>
-                  <td>{{ scheme.price }}</td>
-                  <td>{{ scheme.createdAt }}</td>
-                  <td>{{ scheme.coverTenure }}</td>
-                  <td class="text-truncate-custom">{{ scheme.description }}</td>
-                  <td>{{ scheme.amount }}</td>
+                <tr v-for="(plan, index) in paginatedPlans" :key="index">
+                  <td>{{ plan.planId }}</td>
+                  <td>{{ plan.planName }}</td>
+                  <td class="text-truncate-custom">{{ plan.planDescription }}</td>
+                  <td>{{ plan.createdAt }}</td>
                   <td>
                     <ul class="action-list">
                       <li>
-                        <a href="#" data-tip="edit" data-bs-toggle="modal" data-bs-target="#editSchemeModal" @click="editScheme(scheme)"><i class="fa fa-edit"></i></a>
+                        <a href="#" data-tip="edit" data-bs-toggle="modal" data-bs-target="#editPlanModal" @click="editPlan(plan)"><i class="fa fa-edit"></i></a>
                       </li>
                       <li>
-                        <a href="#" data-tip="delete" @click="deleteScheme(scheme.schemeId)"><i class="fa fa-trash"></i></a>
+                        <a href="#" data-tip="delete" @click="deletePlan(plan.planId)"><i class="fa fa-trash"></i></a>
                       </li>
                     </ul>
                   </td>
@@ -213,8 +163,8 @@ export default {
           <div class="panel-footer">
             <div class="row">
               <div class="col col-sm-6 col-xs-6">
-                showing <b>{{ paginatedSchemes.length }}</b> out of
-                <b>{{ filteredSchemes.length }}</b> entries
+                showing <b>{{ paginatedPlans.length }}</b> out of
+                <b>{{ filteredPlans.length }}</b> entries
               </div>
               <div class="col-sm-6 col-xs-6">
                 <ul class="pagination hidden-xs pull-right">
@@ -240,90 +190,50 @@ export default {
     </div>
   </div>
 
-  <!-- Add Scheme Modal -->
-  <div class="modal fade" id="addSchemeModal" tabindex="-1" aria-labelledby="addSchemeModalLabel" aria-hidden="true">
+  <!-- Add Plan Modal -->
+  <div class="modal fade" id="addPlanModal" tabindex="-1" aria-labelledby="addPlanModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addSchemeModalLabel">Add New Scheme</h5>
+          <h5 class="modal-title" id="addPlanModalLabel">Add New Plan</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form @submit.prevent="addScheme">
-            <div class="mb-3">
-              <label for="schemeName" class="form-label">Scheme Name</label>
-              <input type="text" class="form-control" id="schemeName" v-model="newScheme.schemeName" required>
-            </div>
+          <form @submit.prevent="addPlan">
             <div class="mb-3">
               <label for="planName" class="form-label">Plan Name</label>
-              <input type="text" class="form-control" id="planName" v-model="newScheme.planName" required>
+              <input type="text" class="form-control" id="planName" v-model="newPlan.planName" required>
             </div>
             <div class="mb-3">
-              <label for="price" class="form-label">Price</label>
-              <input type="text" class="form-control" id="price" v-model="newScheme.price" required>
+              <label for="planDescription" class="form-label">Plan Description</label>
+              <input type="text" class="form-control" id="planDescription" v-model="newPlan.planDescription" required>
             </div>
-            <div class="mb-3">
-              <label for="createdAt" class="form-label">Created At</label>
-              <input type="date" class="form-control" id="createdAt" v-model="newScheme.createdAt" required>
-            </div>
-            <div class="mb-3">
-              <label for="coverTenure" class="form-label">Cover Tenure</label>
-              <input type="text" class="form-control" id="coverTenure" v-model="newScheme.coverTenure" required>
-            </div>
-            <div class="mb-3">
-              <label for="description" class="form-label">Description</label>
-              <input type="text" class="form-control" id="description" v-model="newScheme.description" required>
-            </div>
-            <div class="mb-3">
-              <label for="amount" class="form-label">Amount</label>
-              <input type="text" class="form-control" id="amount" v-model="newScheme.amount" required>
-            </div>
-            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Add Scheme</button>
+            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Add Plan</button>
           </form>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Edit Scheme Modal -->
-  <div class="modal fade" id="editSchemeModal" tabindex="-1" aria-labelledby="editSchemeModalLabel" aria-hidden="true">
+  <!-- Edit Plan Modal -->
+  <div class="modal fade" id="editPlanModal" tabindex="-1" aria-labelledby="editPlanModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="editSchemeModalLabel">Edit Scheme</h5>
+          <h5 class="modal-title" id="editPlanModalLabel">Edit Plan</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form @submit.prevent="updateScheme">
-            <div class="mb-3">
-              <label for="editSchemeName" class="form-label">Scheme Name</label>
-              <input type="text" class="form-control" id="editSchemeName" v-model="editedScheme.schemeName" required>
-            </div>
+          <form @submit.prevent="updatePlan">
             <div class="mb-3">
               <label for="editPlanName" class="form-label">Plan Name</label>
-              <input type="text" class="form-control" id="editPlanName" v-model="editedScheme.planName" required>
+              <input type="text" class="form-control" id="editPlanName" v-model="editedPlan.planName" required>
             </div>
             <div class="mb-3">
-              <label for="editPrice" class="form-label">Price</label>
-              <input type="text" class="form-control" id="editPrice" v-model="editedScheme.price" required>
+              <label for="editPlanDescription" class="form-label">Plan Description</label>
+              <input type="text" class="form-control" id="editPlanDescription" v-model="editedPlan.planDescription" required>
             </div>
-            <div class="mb-3">
-              <label for="editCreatedAt" class="form-label">Created At</label>
-              <input type="date" class="form-control" id="editCreatedAt" v-model="editedScheme.createdAt" required>
-            </div>
-            <div class="mb-3">
-              <label for="editCoverTenure" class="form-label">Cover Tenure</label>
-              <input type="text" class="form-control" id="editCoverTenure" v-model="editedScheme.coverTenure" required>
-            </div>
-            <div class="mb-3">
-              <label for="editDescription" class="form-label">Description</label>
-              <input type="text" class="form-control" id="editDescription" v-model="editedScheme.description" required>
-            </div>
-            <div class="mb-3">
-              <label for="editAmount" class="form-label">Amount</label>
-              <input type="text" class="form-control" id="editAmount" v-model="editedScheme.amount" required>
-            </div>
-            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Update Scheme</button>
+            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Update Plan</button>
           </form>
         </div>
       </div>
