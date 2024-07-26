@@ -5,7 +5,7 @@ import Footer from '../Footer.vue'
 </script>
 
 <template>
-    <Header/>
+    <!-- <Header/> -->
   <div class="container">
     <div class="row">
       <div class="col-12 col-sm-6 col-md-3 col-lg-3 mb-4" v-for="n in 20" :key="n">
@@ -15,7 +15,7 @@ import Footer from '../Footer.vue'
       </div>
     </div>
   </div>
-  <Footer/>
+  <!-- <Footer/> -->
 
 </template>
 

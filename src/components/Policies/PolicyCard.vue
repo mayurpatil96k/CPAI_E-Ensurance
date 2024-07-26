@@ -1,5 +1,5 @@
 <template>
-    <div class="card  hover-shadow" style="width: 18rem">
+    <div class="card  hover-shadow" style="width: 18rem; border: 2px solid rgb(8, 85, 127);">
       <!-- <img
         src="https://life.futuregenerali.in/media/lzxjzwb3/life-insurance-for-you-and-your-family.webp"
         class="card-img-top"
