@@ -1,6 +1,7 @@
 <script lang="ts">
 import Header from '../Header.vue'
 import Footer from '../Footer.vue'
+
 export default {
   components: {
     Header,
@@ -182,7 +183,10 @@ export default {
     },
     changePage(page) {
       this.currentPage = page;
-    }
+    },
+    viewCustomerDetails(customer: { name: string}) {
+      this.$router.push({ path: `/Agent/customer/${encodeURIComponent(customer.name)}` });
+    },
   }
 }
 </script>
@@ -243,6 +247,9 @@ export default {
                   <td>{{ customer.agentId }}</td>
                   <td>
                     <ul class="action-list">
+                      <li>
+                        <a href="#" @click.prevent="viewCustomerDetails(customer)" data-tip="view"><i class="fa fa-eye"></i></a>
+                      </li>
                       <li>
                         <a href="#" @click.prevent="confirmDelete(customer)" data-tip="delete"><i class="fa fa-trash"></i></a>
                       </li>

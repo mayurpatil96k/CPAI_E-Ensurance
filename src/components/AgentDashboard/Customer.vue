@@ -2,9 +2,7 @@
 <script lang="ts">
 import Header from '../Header.vue'
 import Footer from '../Footer.vue'
-import { useRouter } from 'vue-router';
-import CustomerDetails from './CustomerDetails.vue';
-import { defineComponent} from 'vue';
+
 
 export default {
   components: {
