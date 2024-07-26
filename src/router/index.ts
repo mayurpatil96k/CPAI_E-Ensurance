@@ -12,6 +12,8 @@ import EmployeeLogin from '@/components/Login/EmployeeLogin.vue'
 import AdminDashboard from '@/views/AdminDashboard.vue'
 import Employee from '@/components/Agents/Employee.vue'
 import Agent from '@/components/Agents/Agent.vue'
+import EmployeeDashboard from '@/views/EmployeeDashboard.vue'
+import Scheme from '@/components/Employee/Scheme.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -85,6 +87,19 @@ const router = createRouter({
       path:'/customer',
       name:'CustomerPolicies2',
       component:CustomerPolicies,
+      
+    },
+    {
+      path:'/Employee',
+      name:'EmployeeDashboard',
+      component:EmployeeDashboard,
+      children:[
+        {
+          path: '/Employee/scheme',
+          name: 'scheme',
+          component: Scheme,
+        }
+      ]
     },
     {
       // temp routing...
