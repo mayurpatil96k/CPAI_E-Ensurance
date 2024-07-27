@@ -179,8 +179,6 @@ export default {
     },
     deleteItem() {
       // Logic to delete the item
-      //Hello thi is raj
-      
       console.log('Item deleted');
     },
     changePage(page:number) {

@@ -9,25 +9,6 @@ interface ReqData {
 }
 const emit = defineEmits(['submitSuccess'])
 
-<script>
-import { ref } from 'vue'
-import { useVueform, Vueform } from '@vueform/vueform'
-export default {
-  mixins: [Vueform],
-  setup(props, context)
-  {
-    const form = useVueform(props, context)
-    const vueform = ref({
-      displayErrors: false,
-      size: 'md',
-      addClass: 'vf-create-account',
-     
-      schema: {
-        // page_title: {
-        //   type: 'static',
-        //   content: 'Create Admin account',
-        //   tag: 'h1',
-        //   align: 'center',
 
 const handleSubmit = async (formRef: { requestData: ReqData }, formData: ReqData) => {
 

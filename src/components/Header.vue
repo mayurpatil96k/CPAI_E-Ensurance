@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <script lang="ts">
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
@@ -39,19 +38,6 @@ export default {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active u-color" aria-current="page" href="#">Employees Details</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active u-color" aria-current="page" href="#">Customer Details</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active u-color" aria-current="page" href="#">Agent Details</a>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-light" type="submit">Search</button>
-        </form>
             <router-link class="mr-md-3" :class="{'u-color': true, 'active-link': isActive('/admin/employee')}" to="/admin/employee">Employee</router-link>
           </li>
           <li class="nav-item">
@@ -81,4 +67,3 @@ export default {
   font-weight: bold; 
 }
 </style>
-

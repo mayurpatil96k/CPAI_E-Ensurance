@@ -72,9 +72,7 @@ export default {
       totalCustomers: 25,
       searchQuery: '',
       currentPage: 1,
-      itemsPerPage: 10,
-      isEditDialogOpen: false,
-      selectedEmployee: null,
+      itemsPerPage: 10
     }
   },
   computed: {
@@ -89,14 +87,6 @@ export default {
           customer.email.toLowerCase().includes(lowercasedQuery) ||
           customer.phone.includes(lowercasedQuery)
       )
-    },
-    openEditModal(employee) {
-      this.selectedEmployee = employee;
-      this.isEditDialogOpen = true;
-    },
-    closeEditForm() {
-      this.isEditDialogOpen = false;
-      this.selectedEmployee = null;
     },
     paginatedCustomers() {
       const start = (this.currentPage - 1) * this.itemsPerPage
@@ -217,6 +207,7 @@ export default {
       </div>
     </div>
    <CreateAgent/>
+   <EditAgent :isDialogOpen="isEditDialogOpen" :customer="selectedEmployee" @closeDialog="closeEditForm"/>
   </div>
 </template>
 
