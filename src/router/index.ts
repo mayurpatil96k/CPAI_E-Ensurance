@@ -95,8 +95,8 @@ const router = createRouter({
     },
     {
       path:'/customer',
-      name:'CustomerPolicies2',
-      component:CustomerPolicies,
+      name:'CustomerDashboard',
+      component:CustomerDashboard,
       
     },
     {
