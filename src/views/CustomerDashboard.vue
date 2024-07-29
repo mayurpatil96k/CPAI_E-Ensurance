@@ -70,9 +70,9 @@ export default {
   <div class="container my-4">
     <div class="row ">
       <div class="col-md-6">
-        <!-- Add your new content here -->
-        <div class="new-content h-100 d-flex align-content-center">
-          <span class="fs-1">Let's find you the <br /><strong>Best Insurance</strong></span>
+        
+        <div class="new-content d-flex align-content-center justify-content-center ">
+          <span class="fs-1 gradient-text">Let's find you the <br />Best Insurance</span>
         </div>
       </div>
       <div class="col-md-6">
@@ -118,7 +118,10 @@ export default {
   font-weight: bold;
 }
 
-.new-content {
-  /* Add your custom styles for the new content here */
-}
+.gradient-text {
+      font-weight: bold;
+      background: linear-gradient(to right, #ff0000, #0000ff); 
+      -webkit-background-clip: text;
+      color: transparent;
+    }
 </style>
