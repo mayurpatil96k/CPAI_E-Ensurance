@@ -16,7 +16,7 @@
         </p>
         <div class="d-flex justify-content-md-between">
           <a href="#" class="btn btn-outline-danger">Buy Now</a>
-          <a href="#" class="btn btn-outline-danger">Know More</a>
+          <router-link to="/agent/policydetails" class="btn btn-outline-danger">Know More</router-link>
         </div>
       </div>
     </div>

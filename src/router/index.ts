@@ -19,6 +19,8 @@ import AgentDashboard from '@/views/AgentDashboard.vue'
 import Customer from '@/components/AgentDashboard/Customer.vue'
 import CustomerDetails from '@/components/AgentDashboard/CustomerDetails.vue'
 import CustomerDashboard from '@/views/CustomerDashboard.vue'
+import PolicyCard from '@/components/Policies/PolicyCard.vue'
+import PolicyDetails from '@/components/Policies/PolicyDetails.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -127,6 +129,11 @@ const router = createRouter({
           component:MyPolicy
         },
         {
+          path:'/Agent/policydetails',
+          name:'policydetails',
+          component:PolicyDetails,
+        },
+        {
           path:'/Agent/customer',
           name:'agentcustomer',
           component:Customer
@@ -135,7 +142,7 @@ const router = createRouter({
           path:'/Agent/customer/:name',
           component:CustomerDetails,
           props:(route) => ({ customerName: route.params.name })
-        }
+        },
       ]
     }
   ]
