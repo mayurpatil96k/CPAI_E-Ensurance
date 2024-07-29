@@ -86,7 +86,18 @@ const router = createRouter({
           name: 'Agent',
           component: Agent,
       },
+      {
+        path:'/admin/customer/:name',
+        component:CustomerDetails,
+        props:(route) => ({ customerName: route.params.name })
+      }
     ]
+    },
+    {
+      path:'/customer',
+      name:'CustomerPolicies2',
+      component:CustomerPolicies,
+      
     },
     {
       path:'/Employee',
@@ -125,15 +136,6 @@ const router = createRouter({
           component:CustomerDetails,
           props:(route) => ({ customerName: route.params.name })
         }
-      ]
-    },
-    
-    {
-      path:'/customer',
-      name:'customerdashboard',
-      component:CustomerDashboard,
-      children:[
-
       ]
     }
   ]

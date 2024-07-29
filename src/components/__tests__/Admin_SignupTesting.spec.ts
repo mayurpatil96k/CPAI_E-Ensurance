@@ -7,6 +7,8 @@ import EmployeeSignup from '../Signup/EmployeeSignup.vue'
 vi.mock('@vueform/vueform', () => ({
   useVueform: vi.fn(() => ({
     vueVersion: '3', 
+<<<<<<< HEAD
+=======
     data: {
       _value: {
         username: '',
@@ -16,6 +18,7 @@ vi.mock('@vueform/vueform', () => ({
         password_confirmation: '',
       },
     },
+>>>>>>> 7b75c5540ed1bdc7b98c3f68c38ee01d4c814736
   })),
   Vueform: {
     methods: {
@@ -27,6 +30,15 @@ vi.mock('@vueform/vueform', () => ({
 describe('AdminSignup', () => {
   it('renders properly', () => {
     const wrapper = mount(AdminSignup)
+<<<<<<< HEAD
+    expect(wrapper.exists()).toBe(true)
+  })
+  
+})
+describe('EmployeeSignup', () => {
+  it('renders properly', () => {
+    const wrapper = mount(EmployeeSignup)
+=======
     console.log(wrapper.vm.data._value.fullname)
     expect(wrapper.exists()).toBe(true)
   })
@@ -72,8 +84,12 @@ describe('AdminSignup', () => {
 describe('EmployeeSignup', () => {
   it('renders properly', () => {
     const wrapper = mount(EmployeeSignup, { props: { msg: 'Hello just testing the component is rendering or not' } })
+>>>>>>> 7b75c5540ed1bdc7b98c3f68c38ee01d4c814736
     expect(wrapper.exists()).toBe(true)
   })
 })
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7b75c5540ed1bdc7b98c3f68c38ee01d4c814736
