@@ -104,7 +104,13 @@ const router = createRouter({
         path:'/customer/home',
         name:'customerhome',
         component:Home
-      }]
+      },
+      {
+        path:'/customer/plan',
+        name:'customerplan',
+        component:MyPolicy
+      },
+    ]
     },
     {
       path:'/Employee',
