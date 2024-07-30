@@ -19,6 +19,7 @@ import AgentDashboard from '@/views/AgentDashboard.vue'
 import Customer from '@/components/AgentDashboard/Customer.vue'
 import CustomerDetails from '@/components/AgentDashboard/CustomerDetails.vue'
 import CustomerDashboard from '@/views/CustomerDashboard.vue'
+import Home from '@/components/Customer/Home.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -97,7 +98,11 @@ const router = createRouter({
       path:'/customer',
       name:'CustomerDashboard',
       component:CustomerDashboard,
-      
+      children:[{
+        path:'/customer/home',
+        name:'customerhome',
+        component:Home
+      }]
     },
     {
       path:'/Employee',
