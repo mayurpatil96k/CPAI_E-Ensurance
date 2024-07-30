@@ -48,8 +48,8 @@ export default {
           <li class="nav-item">
             <router-link
               class="mr-md-3"
-              :class="{ 'u-color': true, 'active-link': isActive('/agent/customer') }"
-              to="/agent/customer"
+              :class="{ 'u-color': true, 'active-link': isActive('/customer/plan') }"
+              to="/customer/plan"
               >Scheme</router-link
             >
           </li>

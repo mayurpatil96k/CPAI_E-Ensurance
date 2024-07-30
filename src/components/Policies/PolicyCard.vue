@@ -1,6 +1,6 @@
 <template>
   
-    <div class="card border-danger border-2 hover-shadow" style="width: 18rem">
+    <div class="card border-primary border-2 hover-shadow" style="width: 18rem">
       <img
         src="https://life.futuregenerali.in/media/lzxjzwb3/life-insurance-for-you-and-your-family.webp"
         class="card-img-top"
@@ -15,8 +15,8 @@
           provision of lump sum payment at the end of the selected policy term in case of survival.
         </p>
         <div class="d-flex justify-content-md-between">
-          <a href="#" class="btn btn-outline-danger">Buy Now</a>
-          <router-link to="/agent/policydetails" class="btn btn-outline-danger">Know More</router-link>
+          <a href="#" class="btn btn-outline-primary">Buy Now</a>
+          <router-link to="/agent/policydetails" class="btn btn-outline-primary">Know More</router-link>
         </div>
       </div>
     </div>
