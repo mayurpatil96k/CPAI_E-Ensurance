@@ -17,8 +17,7 @@
   </template>
   
   <script lang="ts">
-  import { defineComponent, computed } from 'vue';
-  import { useRoute } from 'vue-router';
+  import { defineComponent } from 'vue';
   
   export default defineComponent({
     props: {
@@ -37,7 +36,7 @@
       };
     },
     computed: {
-      customer() {
+      customer(): { name: string, email: string, phone: string, dob: string, agentId: string, image: string } {
         return this.customers.find(customer => customer.name === this.customerName) || {};
       },
       policies() {
@@ -48,6 +47,7 @@
         ];
       }
     }
+    
   });
   </script>
   <style scoped>
