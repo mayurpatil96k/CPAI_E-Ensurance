@@ -37,7 +37,14 @@
     },
     computed: {
       customer(): { name: string, email: string, phone: string, dob: string, agentId: string, image: string } {
-        return this.customers.find(customer => customer.name === this.customerName) || {};
+        return this.customers.find(customer => customer.name === this.customerName) || {
+          name: '', 
+      email: '', 
+      phone: '', 
+      dob: '', 
+      agentId: '', 
+      image: '' 
+        };
       },
       policies() {
         return [
