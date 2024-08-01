@@ -13,11 +13,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'PolicyDetail'
-};
-</script>
 
 <style scoped>
 .policy-detail {
