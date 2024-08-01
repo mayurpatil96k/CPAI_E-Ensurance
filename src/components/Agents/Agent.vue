@@ -13,7 +13,15 @@ export default {
   data() {
     return {
       isEditDialogOpen: false,
-      selectedEmployee: {},
+      selectedEmployee: {
+  name: '',
+  username: '',
+  email: '',
+  password: '',
+  phone: '',
+  password_confirmation: '',
+  id: undefined
+},
       customers: [
         {
           name: 'Anant Ambani',
