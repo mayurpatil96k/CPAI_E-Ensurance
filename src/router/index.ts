@@ -8,7 +8,7 @@ import Login from '../views/Login.vue'
 import AdminLogin from '@/components/Login/AdminLogin.vue'
 import CustomerPolicies from '../components/Agents/CustomerPolicies.vue'
 import MyPolicy from '../components/Policies/MyPolicy.vue'
-import EmployeeLogin from '@/components/Login/EmployeeLogin.vue'
+// import EmployeeLogin from '@/components/Login/EmployeeLogin.vue'
 import AdminDashboard from '@/views/AdminDashboard.vue'
 import Employee from '@/components/Agents/Employee.vue'
 import Agent from '@/components/Agents/Agent.vue'
@@ -65,11 +65,6 @@ const router = createRouter({
           path: '/Login/adminLogin',
           name: 'adminLogin',
           component: AdminLogin,
-        },
-        {
-          path: '/Login/EmployeeLogin',
-          name: 'EmployeeLogin',
-          component: EmployeeLogin,
         },
         
       ]
